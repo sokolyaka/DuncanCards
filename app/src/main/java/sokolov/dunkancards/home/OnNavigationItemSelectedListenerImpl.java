@@ -23,9 +23,6 @@ public class OnNavigationItemSelectedListenerImpl implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (!item.isChecked()) {
             switch (item.getItemId()) {
-                case R.id.nav_home:
-
-                    break;
                 case R.id.nav_settings:
                     activity
                             .startActivity(
