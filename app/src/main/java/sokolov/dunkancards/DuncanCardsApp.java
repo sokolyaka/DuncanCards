@@ -11,6 +11,7 @@ public class DuncanCardsApp extends Application {
 
     @Override
     public void onCreate() {
+        super.onCreate();
         settingsRepository = new InMemorySettingsRepository();
     }
 
