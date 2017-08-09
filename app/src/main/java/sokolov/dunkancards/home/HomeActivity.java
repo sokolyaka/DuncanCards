@@ -8,9 +8,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.home.interactor.CategoriesInteractorImpl;
+import sokolov.dunkancards.home.presenter.CategoriesPresenterImpl;
+import sokolov.dunkancards.home.view.CategoriesView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements CategoriesView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,12 @@ public class HomeActivity extends AppCompatActivity {
         ((NavigationView) findViewById(R.id.nav_view))
                 .setNavigationItemSelectedListener(
                         new OnNavigationItemSelectedListenerImpl(this));
+
+        new CategoriesPresenterImpl(
+                this,
+                new CategoriesInteractorImpl(
+                        ((DuncanCardsApp) getApplication())
+                                .getCategoriesRepository()));
     }
 
     @Override
