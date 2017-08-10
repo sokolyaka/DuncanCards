@@ -1,4 +1,4 @@
-package sokolov.dunkancards.settings;
+package sokolov.dunkancards.settings.view;
 
 import android.widget.CompoundButton;
 

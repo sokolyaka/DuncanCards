@@ -9,7 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.settings.SettingsActivity;
+import sokolov.dunkancards.settings.view.SettingsActivity;
 
 public class OnNavigationItemSelectedListenerImpl implements NavigationView.OnNavigationItemSelectedListener {
     private final Activity activity;

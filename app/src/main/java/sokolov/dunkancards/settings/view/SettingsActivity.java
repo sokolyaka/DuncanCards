@@ -1,4 +1,4 @@
-package sokolov.dunkancards.settings;
+package sokolov.dunkancards.settings.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
-import sokolov.dunkancards.settings.view.SettingsView;
 
 public class SettingsActivity extends AppCompatActivity implements SettingsView {
 
