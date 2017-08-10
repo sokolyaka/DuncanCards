@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dunkan Cards</string>
+    <string name="app_name">Duncan`s Cards</string>
     <string name="title_activity_categories">CategoriesActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
