@@ -1,4 +1,4 @@
-package sokolov.dunkancards.categories;
+package sokolov.dunkancards.categories.view;
 
 import android.app.Activity;
 import android.content.Intent;

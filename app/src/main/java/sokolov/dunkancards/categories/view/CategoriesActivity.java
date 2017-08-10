@@ -1,4 +1,4 @@
-package sokolov.dunkancards.categories;
+package sokolov.dunkancards.categories.view;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,7 +14,6 @@ import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
-import sokolov.dunkancards.categories.view.CategoriesView;
 
 public class CategoriesActivity extends AppCompatActivity implements CategoriesView {
 
