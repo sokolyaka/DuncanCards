@@ -4,12 +4,14 @@ import java.util.List;
 
 import sokolov.dunkancards.repository.CategoriesRepository;
 
-public class CategoriesInteractorImpl implements CategoriesInteractor{
+public class CategoriesInteractorImpl implements CategoriesInteractor {
 
-    public CategoriesInteractorImpl(CategoriesRepository categoryRepository) {}
+    private final CategoriesRepository categoryRepository;
+
+    public CategoriesInteractorImpl(CategoriesRepository categoryRepository) {this.categoryRepository = categoryRepository;}
 
     @Override
     public List<String> loadCategories() {
-        return null;
+        return categoryRepository.getAllCategories();
     }
 }
