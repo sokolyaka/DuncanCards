@@ -1,7 +1,7 @@
-package sokolov.dunkancards.home.presenter;
+package sokolov.dunkancards.categories.presenter;
 
-import sokolov.dunkancards.home.interactor.CategoriesInteractor;
-import sokolov.dunkancards.home.view.CategoriesView;
+import sokolov.dunkancards.categories.interactor.CategoriesInteractor;
+import sokolov.dunkancards.categories.view.CategoriesView;
 
 public class CategoriesPresenterImpl implements CategoriesPresenter {
 

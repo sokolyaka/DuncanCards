@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home.view;
+package sokolov.dunkancards.categories.view;
 
 import java.util.List;
 

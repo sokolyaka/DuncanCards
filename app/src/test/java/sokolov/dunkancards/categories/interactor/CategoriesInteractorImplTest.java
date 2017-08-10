@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home.interactor;
+package sokolov.dunkancards.categories.interactor;
 
 import org.junit.Before;
 import org.junit.Test;

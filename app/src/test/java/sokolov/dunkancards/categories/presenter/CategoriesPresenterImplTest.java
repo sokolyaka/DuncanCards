@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home.presenter;
+package sokolov.dunkancards.categories.presenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 
-import sokolov.dunkancards.home.interactor.CategoriesInteractor;
-import sokolov.dunkancards.home.view.CategoriesView;
+import sokolov.dunkancards.categories.interactor.CategoriesInteractor;
+import sokolov.dunkancards.categories.view.CategoriesView;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

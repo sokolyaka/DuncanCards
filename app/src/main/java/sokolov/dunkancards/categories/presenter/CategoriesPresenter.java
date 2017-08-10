@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home.presenter;
+package sokolov.dunkancards.categories.presenter;
 
 interface CategoriesPresenter {
 

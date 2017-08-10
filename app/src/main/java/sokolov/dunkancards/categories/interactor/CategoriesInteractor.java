@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home.interactor;
+package sokolov.dunkancards.categories.interactor;
 
 import java.util.List;
 
