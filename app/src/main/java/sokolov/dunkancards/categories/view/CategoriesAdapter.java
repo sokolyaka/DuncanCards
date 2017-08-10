@@ -1,5 +1,6 @@
 package sokolov.dunkancards.categories.view;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @Override
     public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater
+        CardView v = (CardView) LayoutInflater
                 .from(parent.getContext())
                 .inflate(R.layout.category_view, parent, false);
         return new ViewHolder(v);
@@ -42,11 +43,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+
         final TextView mTextView;
 
-        ViewHolder(TextView v) {
+        ViewHolder(CardView v) {
             super(v);
-            mTextView = v;
+            mTextView = (TextView) v.findViewById(R.id.title);
         }
     }
 }
