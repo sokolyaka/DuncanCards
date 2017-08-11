@@ -38,11 +38,12 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                 .setNavigationItemSelectedListener(
                         new OnNavigationItemSelectedListenerImpl(this));
 
-        presenter = new CategoriesPresenterImpl(
-                this,
-                new CategoriesInteractorImpl(
-                        ((DuncanCardsApp) getApplication())
-                                .getCategoriesRepository()));
+        presenter =
+                new CategoriesPresenterImpl(
+                        this,
+                        new CategoriesInteractorImpl(
+                                ((DuncanCardsApp) getApplication())
+                                        .getCategoriesRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(
