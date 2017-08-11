@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.util.HideSystemNavigation;
+import sokolov.dunkancards.util.ZoomOutPageTransformer;
 
 public class CardsActivity extends AppCompatActivity {
 
@@ -16,9 +17,12 @@ public class CardsActivity extends AppCompatActivity {
 
         new HideSystemNavigation(getWindow().getDecorView()).hide();
 
-        ((ViewPager) findViewById(R.id.container))
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager
                 .setAdapter(
                         new SectionsPagerAdapter(
                                 getSupportFragmentManager()));
+
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
     }
 }
