@@ -67,7 +67,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     }
 
     @Override
-    public void setCategories(List<String> categories) {
+    public void setCategories(List<CategoryViewModel> categories) {
         mAdapter.updateData(categories);
     }
 }

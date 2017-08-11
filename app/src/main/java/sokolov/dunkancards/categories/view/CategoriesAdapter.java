@@ -1,20 +1,26 @@
 package sokolov.dunkancards.categories.view;
 
+import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.List;
 
 import sokolov.dunkancards.R;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
-    private final List<String> items;
+    private final AssetManager assetManager;
+    private final List<CategoryViewModel> items;
 
-    public CategoriesAdapter(List<String> items) {
+    public CategoriesAdapter(AssetManager assetManager, List<CategoryViewModel> items) {
+        this.assetManager = assetManager;
         this.items = items;
     }
 
@@ -28,7 +34,22 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(items.get(position));
+        CategoryViewModel viewModel = items.get(position);
+
+        holder.title.setText(viewModel.title());
+
+        try {
+            holder.preview.setImageDrawable(
+                    Drawable.createFromStream(
+                            assetManager.open(
+                                    viewModel.previewPath()),
+                            null));
+
+        } catch (IOException e) {
+            holder.preview.setBackgroundResource(R.drawable.broken_category_img);
+        }
+
+        holder.cardsCount.setText(viewModel.cardsCount());
     }
 
     @Override
@@ -36,7 +57,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         return items.size();
     }
 
-    public void updateData(List<String> viewModels) {
+    public void updateData(List<CategoryViewModel> viewModels) {
         items.clear();
         items.addAll(viewModels);
         notifyDataSetChanged();
@@ -44,11 +65,15 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView mTextView;
+        private final TextView title;
+        private final ImageView preview;
+        private final TextView cardsCount;
 
         ViewHolder(CardView v) {
             super(v);
-            mTextView = (TextView) v.findViewById(R.id.title);
+            title = (TextView) itemView.findViewById(R.id.title);
+            preview = (ImageView) itemView.findViewById(R.id.preview);
+            cardsCount = (TextView) itemView.findViewById(R.id.cards_count);
         }
     }
 }

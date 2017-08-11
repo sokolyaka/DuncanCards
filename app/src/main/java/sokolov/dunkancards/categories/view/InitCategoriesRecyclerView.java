@@ -19,7 +19,7 @@ class InitCategoriesRecyclerView {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        CategoriesAdapter adapter = new CategoriesAdapter(new LinkedList<String>());
+        CategoriesAdapter adapter = new CategoriesAdapter(context.getAssets(), new LinkedList<CategoryViewModel>());
         recyclerView.setAdapter(adapter);
         return adapter;
     }

@@ -36,7 +36,7 @@ public class CategoriesPresenterImplTest {
         verify(categoriesInteractor, times(1))
                 .loadCategories();
         verify(categoriesView, times(1))
-                .setCategories(new ArrayList<String>());
+                .setCategories(new ArrayList<sokolov.dunkancards.categories.view.CategoryViewModel>());
     }
 
 }
