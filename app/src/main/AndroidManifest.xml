@@ -27,6 +27,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".categories.view.CategoriesActivity"/>
         </activity>
+        <activity
+            android:name=".cards.view.CardsActivity"
+            android:label="@string/title_activity_cards"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

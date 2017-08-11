@@ -1,5 +1,6 @@
 package sokolov.dunkancards.categories.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
 
@@ -86,5 +88,6 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
 
     @Override
     public void launchCategoryView() {
+        startActivity(new Intent(this, CardsActivity.class));
     }
 }
