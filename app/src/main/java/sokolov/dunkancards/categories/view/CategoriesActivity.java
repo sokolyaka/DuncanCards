@@ -30,7 +30,11 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -47,8 +51,16 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
 
         mAdapter =
                 new InitCategoriesRecyclerView(
-                        (RecyclerView) findViewById(R.id.categories_recycler_view), this)
-                .execute();
+                        (RecyclerView) findViewById(R.id.categories_recycler_view),
+                        this,
+                        new CategoriesAdapter.OnItemClickListener() {
+
+                            @Override
+                            public void onItemClick(CategoryViewModel item) {
+                                presenter.onCategorySelected(item);
+                            }
+                        })
+                        .execute();
     }
 
     @Override
@@ -70,5 +82,9 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     @Override
     public void setCategories(List<CategoryViewModel> categories) {
         mAdapter.updateData(categories);
+    }
+
+    @Override
+    public void launchCategoryView() {
     }
 }

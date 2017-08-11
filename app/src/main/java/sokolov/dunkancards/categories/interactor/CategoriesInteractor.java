@@ -7,4 +7,6 @@ import sokolov.dunkancards.categories.view.CategoryViewModel;
 public interface CategoriesInteractor {
 
     List<CategoryViewModel> loadCategories();
+
+    void selectedCategory(CategoryViewModel categoryViewModel);
 }

@@ -10,16 +10,24 @@ class InitCategoriesRecyclerView {
 
     private final RecyclerView recyclerView;
     private final Context context;
+    private final CategoriesAdapter.OnItemClickListener listener;
 
-    public InitCategoriesRecyclerView(RecyclerView recyclerView, Context context) {this.recyclerView = recyclerView;
+    public InitCategoriesRecyclerView(RecyclerView recyclerView, Context context, CategoriesAdapter.OnItemClickListener listener) {
+        this.recyclerView = recyclerView;
         this.context = context;
+        this.listener = listener;
     }
 
     public CategoriesAdapter execute() {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        CategoriesAdapter adapter = new CategoriesAdapter(context.getAssets(), new LinkedList<CategoryViewModel>());
+        CategoriesAdapter adapter =
+                new CategoriesAdapter(
+                        context.getAssets(),
+                        new LinkedList<CategoryViewModel>(),
+                        listener);
+
         recyclerView.setAdapter(adapter);
         return adapter;
     }

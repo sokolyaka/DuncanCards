@@ -9,6 +9,11 @@ public class CategoryViewModelFromDataModel implements CategoryViewModel {
     public CategoryViewModelFromDataModel(CategoryModel model) {this.model = model;}
 
     @Override
+    public int id() {
+        return model.id();
+    }
+
+    @Override
     public String title() {
         return model.title();
     }
