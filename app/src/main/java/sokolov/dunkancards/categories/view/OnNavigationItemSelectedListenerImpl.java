@@ -1,4 +1,4 @@
-package sokolov.dunkancards.home;
+package sokolov.dunkancards.categories.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.settings.SettingsActivity;
+import sokolov.dunkancards.settings.view.SettingsActivity;
 
 public class OnNavigationItemSelectedListenerImpl implements NavigationView.OnNavigationItemSelectedListener {
     private final Activity activity;
@@ -23,9 +23,6 @@ public class OnNavigationItemSelectedListenerImpl implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (!item.isChecked()) {
             switch (item.getItemId()) {
-                case R.id.nav_home:
-
-                    break;
                 case R.id.nav_settings:
                     activity
                             .startActivity(

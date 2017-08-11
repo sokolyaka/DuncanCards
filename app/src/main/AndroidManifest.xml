@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".home.HomeActivity"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="landscape"
+            android:name=".categories.view.CategoriesActivity"
+            android:label="@string/title_activity_categories"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,11 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.SettingsActivity"
-            android:screenOrientation="landscape">
+            android:name=".settings.view.SettingsActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".home.HomeActivity"/>
+                android:value=".categories.view.CategoriesActivity"/>
         </activity>
     </application>
 
