@@ -77,7 +77,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
                                 null));
 
             } catch (IOException e) {
-                preview.setBackgroundResource(R.drawable.broken_category_img);
+                preview.setImageResource(R.drawable.broken_category_img);
             }
 
             cardsCount.setText(viewModel.cardsCount());
