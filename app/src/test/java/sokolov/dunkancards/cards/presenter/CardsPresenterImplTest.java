@@ -6,6 +6,8 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Collections;
+
 import sokolov.dunkancards.cards.interactor.CardsInteractor;
 import sokolov.dunkancards.cards.view.CardsView;
 
@@ -29,7 +31,8 @@ public class CardsPresenterImplTest {
     @Test
     public void testOnCreate() {
         cardsPresenter.onCreate();
-        verify(cardsView, times(1)).showCards(null);
+        verify(cardsInteractor, times(1)).loadCards();
+        verify(cardsView, times(1)).showCards(Collections.EMPTY_LIST);
     }
 
 }

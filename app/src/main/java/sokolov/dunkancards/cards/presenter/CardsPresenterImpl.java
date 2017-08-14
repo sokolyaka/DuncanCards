@@ -14,6 +14,7 @@ public class CardsPresenterImpl implements CardsPresenter {
 
     @Override
     public void onCreate() {
-        cardsView.showCards(null);
+        cardsView.showCards(
+                cardsInteractor.loadCards());
     }
 }
