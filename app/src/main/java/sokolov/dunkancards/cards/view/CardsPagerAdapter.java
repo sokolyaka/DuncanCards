@@ -8,30 +8,25 @@ import java.util.List;
 
 public class CardsPagerAdapter extends FragmentPagerAdapter {
 
+    private final List<CardViewModel> cards;
+
     public CardsPagerAdapter(FragmentManager fm, List<CardViewModel> cards) {
         super(fm);
+        this.cards = cards;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return PlaceholderFragment.newInstance(position + 1);
+        return CardFragment.newInstance(cards.get(position));
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return cards.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return "SECTION 1";
-            case 1:
-                return "SECTION 2";
-            case 2:
-                return "SECTION 3";
-        }
-        return null;
+        return cards.get(position).title();
     }
 }
