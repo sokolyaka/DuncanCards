@@ -28,4 +28,9 @@ public class InMemoryCategoriesRepository implements CategoriesRepository {
     public void saveLastSelectedCategory(int id) {
         lastSelectedCategoryId = id;
     }
+
+    @Override
+    public int getLastSelectedCategoryId() {
+        return lastSelectedCategoryId;
+    }
 }

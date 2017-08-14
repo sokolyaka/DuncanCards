@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
+import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.interactor.CardsInteractorImpl;
 import sokolov.dunkancards.cards.presenter.CardsPresenter;
@@ -30,7 +31,9 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
                 new CardsPresenterImpl(
                         this,
                         new CardsInteractorImpl(
-                                new CardsInMemoryRepository()));
+                                new CardsInMemoryRepository(),
+                                ((DuncanCardsApp) getApplication())
+                                        .getCategoriesRepository()));
         cardsPresenter.onCreate();
     }
 

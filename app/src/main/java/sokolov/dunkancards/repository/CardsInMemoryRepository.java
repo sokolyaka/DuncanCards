@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CardsInMemoryRepository implements CardsRepository {
     @Override
-    public List<CardModel> getCardsByCategory() {
+    public List<CardModel> getCardsByCategoryId(int id) {
         return null;
     }
 }
