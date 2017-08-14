@@ -4,8 +4,8 @@ import android.app.Application;
 
 import sokolov.dunkancards.categories.model.CategoriesRepository;
 import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
-import sokolov.dunkancards.repository.InMemorySettingsRepository;
-import sokolov.dunkancards.repository.SettingsRepository;
+import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
+import sokolov.dunkancards.settings.model.SettingsRepository;
 
 public class DuncanCardsApp extends Application {
 

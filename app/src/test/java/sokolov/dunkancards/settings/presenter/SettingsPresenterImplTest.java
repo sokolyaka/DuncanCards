@@ -6,7 +6,7 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import sokolov.dunkancards.repository.InMemorySettingsRepository;
+import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 import static org.mockito.Mockito.times;

@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.settings.model;
 
 public class InMemorySettingsRepository implements SettingsRepository {
 
