@@ -11,7 +11,7 @@ import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.interactor.CardsInteractorImpl;
 import sokolov.dunkancards.cards.presenter.CardsPresenter;
 import sokolov.dunkancards.cards.presenter.CardsPresenterImpl;
-import sokolov.dunkancards.repository.CardsInMemoryRepository;
+import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
 import sokolov.dunkancards.util.HideSystemNavigation;
 import sokolov.dunkancards.util.ZoomOutPageTransformer;
 

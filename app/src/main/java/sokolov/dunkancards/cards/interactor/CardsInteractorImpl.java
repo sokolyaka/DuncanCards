@@ -5,8 +5,8 @@ import java.util.List;
 
 import sokolov.dunkancards.cards.view.CardViewFormModel;
 import sokolov.dunkancards.cards.view.CardViewModel;
-import sokolov.dunkancards.repository.CardModel;
-import sokolov.dunkancards.repository.CardsRepository;
+import sokolov.dunkancards.cards.model.CardModel;
+import sokolov.dunkancards.cards.model.CardsRepository;
 import sokolov.dunkancards.categories.model.CategoriesRepository;
 
 public class CardsInteractorImpl implements CardsInteractor {

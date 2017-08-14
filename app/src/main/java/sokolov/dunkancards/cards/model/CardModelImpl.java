@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.cards.model;
 
 public class CardModelImpl implements CardModel {
     private final int id;

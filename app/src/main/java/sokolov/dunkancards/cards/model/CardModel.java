@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.cards.model;
 
 public interface CardModel {
     int id();
