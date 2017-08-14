@@ -2,8 +2,8 @@ package sokolov.dunkancards;
 
 import android.app.Application;
 
-import sokolov.dunkancards.repository.CategoriesRepository;
-import sokolov.dunkancards.repository.InMemoryCategoriesRepository;
+import sokolov.dunkancards.categories.model.CategoriesRepository;
+import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
 import sokolov.dunkancards.repository.InMemorySettingsRepository;
 import sokolov.dunkancards.repository.SettingsRepository;
 

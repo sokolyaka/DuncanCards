@@ -7,7 +7,7 @@ import sokolov.dunkancards.cards.view.CardViewFormModel;
 import sokolov.dunkancards.cards.view.CardViewModel;
 import sokolov.dunkancards.repository.CardModel;
 import sokolov.dunkancards.repository.CardsRepository;
-import sokolov.dunkancards.repository.CategoriesRepository;
+import sokolov.dunkancards.categories.model.CategoriesRepository;
 
 public class CardsInteractorImpl implements CardsInteractor {
     private final CardsRepository cardsRepository;

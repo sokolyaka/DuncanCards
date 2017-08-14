@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.categories.model;
 
 import java.util.Arrays;
 import java.util.List;

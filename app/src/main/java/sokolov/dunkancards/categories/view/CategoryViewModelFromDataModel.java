@@ -1,6 +1,6 @@
 package sokolov.dunkancards.categories.view;
 
-import sokolov.dunkancards.repository.CategoryModel;
+import sokolov.dunkancards.categories.model.CategoryModel;
 
 public class CategoryViewModelFromDataModel implements CategoryViewModel {
 

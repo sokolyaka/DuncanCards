@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import sokolov.dunkancards.categories.view.CategoryViewModel;
-import sokolov.dunkancards.repository.CategoriesRepository;
+import sokolov.dunkancards.categories.model.CategoriesRepository;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
