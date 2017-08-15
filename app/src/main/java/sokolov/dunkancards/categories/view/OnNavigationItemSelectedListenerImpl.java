@@ -29,9 +29,6 @@ public class OnNavigationItemSelectedListenerImpl implements NavigationView.OnNa
                                     new Intent(
                                             activity,
                                             SettingsActivity.class));
-                case R.id.nav_donate:
-
-                    break;
             }
         }
 
