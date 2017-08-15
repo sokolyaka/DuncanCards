@@ -1,7 +1,6 @@
 package sokolov.dunkancards.cards.view;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +12,10 @@ import android.widget.TextView;
 import java.io.IOException;
 
 import sokolov.dunkancards.R;
+
+import static android.graphics.Bitmap.createScaledBitmap;
+import static android.graphics.BitmapFactory.Options;
+import static android.graphics.BitmapFactory.decodeStream;
 
 public class CardFragment extends Fragment {
 
@@ -42,12 +45,28 @@ public class CardFragment extends Fragment {
 
     private static void bindImg(View rootView, SerializableCardViewModel viewModel, Context context) {
         ImageView img = (ImageView) rootView.findViewById(R.id.img);
+
         try {
-            img.setImageDrawable(
-                    Drawable.createFromStream(
-                            context.getAssets().open(
-                                    viewModel.imgPath()),
-                            null));
+            img.setAdjustViewBounds(true);
+
+            Options opts = new Options();
+            opts.inPurgeable = true;
+            opts.inScaled = true;
+
+            img.setImageBitmap(
+                    createScaledBitmap(
+                            decodeStream(
+                                    context
+                                            .getAssets()
+                                            .open(
+                                                    viewModel.imgPath()),
+                                    null,
+                                    opts),
+                            img.getDrawable()
+                                    .getIntrinsicWidth(),
+                            img.getDrawable()
+                                    .getIntrinsicHeight(),
+                            true));
 
         } catch (IOException e) {
             img.setImageResource(R.drawable.broken_card_img);
