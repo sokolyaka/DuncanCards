@@ -1,5 +1,6 @@
 package sokolov.dunkancards.categories.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,11 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 
 import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
 
@@ -24,13 +28,20 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_categories);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -38,16 +49,25 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                 .setNavigationItemSelectedListener(
                         new OnNavigationItemSelectedListenerImpl(this));
 
-        presenter = new CategoriesPresenterImpl(
-                this,
-                new CategoriesInteractorImpl(
-                        ((DuncanCardsApp) getApplication())
-                                .getCategoriesRepository()));
+        presenter =
+                new CategoriesPresenterImpl(
+                        this,
+                        new CategoriesInteractorImpl(
+                                ((DuncanCardsApp) getApplication())
+                                        .getCategoriesRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(
-                        (RecyclerView) findViewById(R.id.categories_recycler_view), this)
-                .execute();
+                        (RecyclerView) findViewById(R.id.categories_recycler_view),
+                        this,
+                        new CategoriesAdapter.OnItemClickListener() {
+
+                            @Override
+                            public void onItemClick(CategoryViewModel item) {
+                                presenter.onCategorySelected(item);
+                            }
+                        })
+                        .execute();
     }
 
     @Override
@@ -69,5 +89,10 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     @Override
     public void setCategories(List<CategoryViewModel> categories) {
         mAdapter.updateData(categories);
+    }
+
+    @Override
+    public void launchCategoryView() {
+        startActivity(new Intent(this, CardsActivity.class));
     }
 }

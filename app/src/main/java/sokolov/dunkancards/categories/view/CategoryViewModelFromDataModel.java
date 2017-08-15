@@ -1,12 +1,17 @@
 package sokolov.dunkancards.categories.view;
 
-import sokolov.dunkancards.repository.CategoryModel;
+import sokolov.dunkancards.categories.model.CategoryModel;
 
 public class CategoryViewModelFromDataModel implements CategoryViewModel {
 
     private final CategoryModel model;
 
     public CategoryViewModelFromDataModel(CategoryModel model) {this.model = model;}
+
+    @Override
+    public int id() {
+        return model.id();
+    }
 
     @Override
     public String title() {

@@ -5,8 +5,8 @@ import java.util.List;
 
 import sokolov.dunkancards.categories.view.CategoryViewModel;
 import sokolov.dunkancards.categories.view.CategoryViewModelFromDataModel;
-import sokolov.dunkancards.repository.CategoriesRepository;
-import sokolov.dunkancards.repository.CategoryModel;
+import sokolov.dunkancards.categories.model.CategoriesRepository;
+import sokolov.dunkancards.categories.model.CategoryModel;
 
 public class CategoriesInteractorImpl implements CategoriesInteractor {
 
@@ -22,5 +22,10 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
             viewModels.add(new CategoryViewModelFromDataModel(model));
         }
         return viewModels;
+    }
+
+    @Override
+    public void selectedCategory(CategoryViewModel categoryViewModel) {
+        categoryRepository.saveLastSelectedCategory(categoryViewModel.id());
     }
 }

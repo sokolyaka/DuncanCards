@@ -2,6 +2,7 @@ package sokolov.dunkancards.categories.presenter;
 
 import sokolov.dunkancards.categories.interactor.CategoriesInteractor;
 import sokolov.dunkancards.categories.view.CategoriesView;
+import sokolov.dunkancards.categories.view.CategoryViewModel;
 
 public class CategoriesPresenterImpl implements CategoriesPresenter {
 
@@ -17,5 +18,11 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
     public void onViewShow() {
         categoriesView.setCategories(
                 categoriesInteractor.loadCategories());
+    }
+
+    @Override
+    public void onCategorySelected(CategoryViewModel item) {
+        categoriesInteractor.selectedCategory(item);
+        categoriesView.launchCategoryView();
     }
 }

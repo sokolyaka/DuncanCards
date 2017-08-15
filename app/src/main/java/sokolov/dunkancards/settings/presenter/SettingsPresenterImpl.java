@@ -1,6 +1,6 @@
 package sokolov.dunkancards.settings.presenter;
 
-import sokolov.dunkancards.repository.SettingsRepository;
+import sokolov.dunkancards.settings.model.SettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 public class SettingsPresenterImpl implements SettingsPresenter {
