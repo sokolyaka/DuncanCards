@@ -1,5 +1,6 @@
 package sokolov.dunkancards.cards.view;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,22 +30,32 @@ public class CardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_cards, container, false);
+
         SerializableCardViewModel viewModel =
                 (SerializableCardViewModel) getArguments().getSerializable(VIEW_MODEL);
-        TextView textView = (TextView) rootView.findViewById(R.id.title);
-        textView.setText(viewModel.title());
+
+        bindTitle(rootView, viewModel);
+        bindImg(rootView, viewModel, getContext());
+
+        return rootView;
+    }
+
+    private static void bindImg(View rootView, SerializableCardViewModel viewModel, Context context) {
         ImageView img = (ImageView) rootView.findViewById(R.id.img);
         try {
             img.setImageDrawable(
                     Drawable.createFromStream(
-                            getContext().getAssets().open(
+                            context.getAssets().open(
                                     viewModel.imgPath()),
                             null));
 
         } catch (IOException e) {
             img.setImageResource(R.drawable.broken_card_img);
         }
+    }
 
-        return rootView;
+    private static void bindTitle(View rootView, SerializableCardViewModel viewModel) {
+        TextView textView = (TextView) rootView.findViewById(R.id.title);
+        textView.setText(viewModel.title());
     }
 }
