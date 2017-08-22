@@ -2,12 +2,12 @@ package sokolov.dunkancards.cards.view;
 
 import java.io.Serializable;
 
-public class SerializableCardViewModel implements CardViewModel, Serializable {
+public class SerializableCardDisplayModel implements CardDisplayModel, Serializable {
 
     private final String title;
     private final String imgPath;
 
-    public SerializableCardViewModel(CardViewModel viewModel) {
+    public SerializableCardDisplayModel(CardDisplayModel viewModel) {
         title = viewModel.title();
         imgPath = viewModel.imgPath();
     }

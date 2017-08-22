@@ -2,8 +2,8 @@ package sokolov.dunkancards.cards.interactor;
 
 import java.util.List;
 
-import sokolov.dunkancards.cards.view.CardViewModel;
+import sokolov.dunkancards.cards.view.CardDisplayModel;
 
 public interface CardsInteractor {
-    List<CardViewModel> loadCards();
+    List<CardDisplayModel> loadCards();
 }

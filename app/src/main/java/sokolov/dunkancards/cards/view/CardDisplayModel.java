@@ -1,6 +1,6 @@
 package sokolov.dunkancards.cards.view;
 
-public interface CardViewModel {
+public interface CardDisplayModel {
     String title();
 
     String imgPath();

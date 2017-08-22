@@ -36,7 +36,7 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
     }
 
     @Override
-    public void showCards(List<CardViewModel> cards) {
+    public void showCards(List<CardDisplayModel> cards) {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager
                 .setAdapter(
