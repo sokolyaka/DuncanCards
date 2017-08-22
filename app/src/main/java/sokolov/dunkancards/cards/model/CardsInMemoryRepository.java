@@ -10,12 +10,16 @@ public class CardsInMemoryRepository implements CardsRepository {
     public CardsInMemoryRepository() {
         models =
                 Arrays.asList(
-                        new CardModelImpl(0, 1, "stub_card_img.png", "Tractor"),
-                        new CardModelImpl(1, 1, "stub_card_img.png", "Bus"),
-                        new CardModelImpl(2, 1, "stub_card_img.png", "Train"),
-                        new CardModelImpl(3, 1, "stub_card_img.png", "auto"),
-                        new CardModelImpl(4, 1, "stub_card_img.png", "crane"),
-                        new CardModelImpl(5, 1, "stub_card_img.png", "excavator")
+                        new CardModelImpl(0, 1, "transport/truck.jpg", "Truck"),
+                        new CardModelImpl(1, 1, "transport/ambulance.jpg", "Ambulance"),
+                        new CardModelImpl(2, 1, "transport/auto.jpg", "Auto"),
+                        new CardModelImpl(3, 1, "transport/bicycle.jpg", "Bicycle"),
+                        new CardModelImpl(4, 1, "transport/bus.jpg", "Bus"),
+                        new CardModelImpl(5, 1, "transport/motorcycle.jpg", "Motorcycle"),
+                        new CardModelImpl(6, 1, "transport/police.jpg", "Police"),
+                        new CardModelImpl(7, 1, "transport/tram.jpg", "Tram"),
+                        new CardModelImpl(8, 1, "transport/trolleybus.jpg", "Trolleybus"),
+                        new CardModelImpl(9, 1, "transport/fire truck.jpg", "Fire truck")
                 );
     }
 
