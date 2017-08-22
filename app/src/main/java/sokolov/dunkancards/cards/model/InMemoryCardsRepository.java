@@ -6,11 +6,11 @@ import java.util.List;
 
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
-public class CardsInMemoryRepository implements CardsRepository {
+public class InMemoryCardsRepository implements CardsRepository {
 
     private final List<? extends CardModel> models;
 
-    public CardsInMemoryRepository() {
+    public InMemoryCardsRepository() {
         models =
                 Arrays.asList(
                         new CardModelImpl(0, TRANSPORT_ID, "transport/truck.jpg", "Truck"),
