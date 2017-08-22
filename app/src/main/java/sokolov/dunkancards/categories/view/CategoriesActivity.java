@@ -14,11 +14,11 @@ import android.view.WindowManager;
 
 import java.util.List;
 
-import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
+import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
 
 public class CategoriesActivity extends AppCompatActivity implements CategoriesView {
@@ -56,8 +56,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                 new CategoriesPresenterImpl(
                         this,
                         new CategoriesInteractorImpl(
-                                ((DuncanCardsApp) getApplication())
-                                        .getCategoriesRepository(),
+                                new InMemoryCategoriesRepository(),
                                 new CardsInMemoryRepository()));
 
         mAdapter =
