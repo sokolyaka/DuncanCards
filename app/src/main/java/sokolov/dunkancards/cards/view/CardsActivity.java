@@ -8,13 +8,15 @@ import android.view.WindowManager;
 
 import java.util.List;
 
-import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.interactor.CardsInteractorImpl;
 import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
 import sokolov.dunkancards.cards.presenter.CardsPresenter;
 import sokolov.dunkancards.cards.presenter.CardsPresenterImpl;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.util.ZoomOutPageTransformer;
+
+import static sokolov.dunkancards.categories.view.CategoriesActivity.CATEGORY_DISPLAY_MODEL;
 
 public class CardsActivity extends AppCompatActivity implements CardsView {
 
@@ -29,10 +31,12 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
                 new CardsPresenterImpl(
                         this,
                         new CardsInteractorImpl(
-                                new CardsInMemoryRepository(),
-                                ((DuncanCardsApp) getApplication())
-                                        .getCategoriesRepository()));
-        cardsPresenter.onCreate();
+                                new CardsInMemoryRepository()));
+
+        cardsPresenter.onCreate(
+                (CategoryDisplayModel) getIntent()
+                        .getSerializableExtra(
+                                CATEGORY_DISPLAY_MODEL));
     }
 
     @Override

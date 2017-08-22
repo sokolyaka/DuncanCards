@@ -1,5 +1,7 @@
 package sokolov.dunkancards.cards.presenter;
 
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
+
 public interface CardsPresenter {
-    void onCreate();
+    void onCreate(CategoryDisplayModel category);
 }

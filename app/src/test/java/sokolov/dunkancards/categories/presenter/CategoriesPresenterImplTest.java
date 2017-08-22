@@ -45,7 +45,6 @@ public class CategoriesPresenterImplTest {
     @Test
     public void testOnCategorySelected() {
         categoriesPresenter.onCategorySelected(categoryDisplayModel);
-        verify(categoriesInteractor, times(1)).selectedCategory(categoryDisplayModel);
-        verify(categoriesView, times(1)).launchCategoryView();
+        verify(categoriesView, times(1)).launchCategoryView(categoryDisplayModel);
     }
 }

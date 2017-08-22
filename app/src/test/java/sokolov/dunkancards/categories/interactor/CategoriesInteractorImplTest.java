@@ -34,10 +34,4 @@ public class CategoriesInteractorImplTest {
         verify(categoriesRepository, times(1))
                 .getAllCategories();
     }
-
-    @Test
-    public void testSelectedCategory() {
-        categoriesInteractor.selectedCategory(categoryDisplayModel);
-        verify(categoriesRepository, times(1)).saveLastSelectedCategory(categoryDisplayModel.id());
-    }
 }

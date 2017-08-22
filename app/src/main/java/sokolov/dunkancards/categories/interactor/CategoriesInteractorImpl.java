@@ -23,9 +23,4 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
         }
         return viewModels;
     }
-
-    @Override
-    public void selectedCategory(CategoryDisplayModel categoryDisplayModel) {
-        categoryRepository.saveLastSelectedCategory(categoryDisplayModel.id());
-    }
 }

@@ -8,5 +8,4 @@ public interface CategoriesInteractor {
 
     List<CategoryDisplayModel> loadCategories();
 
-    void selectedCategory(CategoryDisplayModel categoryDisplayModel);
 }

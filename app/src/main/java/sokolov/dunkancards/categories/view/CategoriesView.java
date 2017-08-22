@@ -6,5 +6,5 @@ public interface CategoriesView {
 
     void setCategories(List<CategoryDisplayModel> categories);
 
-    void launchCategoryView();
+    void launchCategoryView(CategoryDisplayModel item);
 }

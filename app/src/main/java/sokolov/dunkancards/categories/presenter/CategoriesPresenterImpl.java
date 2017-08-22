@@ -22,7 +22,6 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
 
     @Override
     public void onCategorySelected(CategoryDisplayModel item) {
-        categoriesInteractor.selectedCategory(item);
-        categoriesView.launchCategoryView();
+        categoriesView.launchCategoryView(item);
     }
 }
