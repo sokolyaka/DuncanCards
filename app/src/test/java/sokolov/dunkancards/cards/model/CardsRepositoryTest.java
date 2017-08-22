@@ -1,17 +1,24 @@
 package sokolov.dunkancards.cards.model;
 
-import java.util.ArrayList;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
-public class CardsInMemoryRepository implements CardsRepository {
+public class CardsRepositoryTest {
 
-    private final List<? extends CardModel> models;
+    private CardsRepository cardsRepository;
+    private List<CardModelImpl> transportModels;
 
-    public CardsInMemoryRepository() {
-        models =
+    @Before
+    public void setUp() {
+        cardsRepository = new CardsInMemoryRepository();
+        transportModels =
                 Arrays.asList(
                         new CardModelImpl(0, TRANSPORT_ID, "transport/truck.jpg", "Truck"),
                         new CardModelImpl(1, TRANSPORT_ID, "transport/ambulance.jpg", "Ambulance"),
@@ -22,18 +29,25 @@ public class CardsInMemoryRepository implements CardsRepository {
                         new CardModelImpl(6, TRANSPORT_ID, "transport/police.jpg", "Police"),
                         new CardModelImpl(7, TRANSPORT_ID, "transport/tram.jpg", "Tram"),
                         new CardModelImpl(8, TRANSPORT_ID, "transport/trolleybus.jpg", "Trolleybus"),
-                        new CardModelImpl(9, TRANSPORT_ID, "transport/fire truck.jpg", "Fire truck")
-                );
+                        new CardModelImpl(9, TRANSPORT_ID, "transport/fire truck.jpg", "Fire truck"));
     }
 
-    @Override
-    public List<CardModel> getCardsByCategoryId(int id) {
-        List<CardModel> result = new ArrayList<>();
-        for (CardModel model : models) {
-            if (model.categoryId() == id) {
-                result.add(model);
-            }
-        }
-        return result;
+    @Test
+    public void testGetCardsByCategoryId() {
+        Assert.assertEquals(
+                transportModels,
+                cardsRepository
+                        .getCardsByCategoryId(
+                                TRANSPORT_ID));
     }
+
+    @Test
+    public void testNoCardsForCategory() {
+        Assert.assertEquals(
+                Collections.EMPTY_LIST,
+                cardsRepository
+                        .getCardsByCategoryId(
+                                Integer.MIN_VALUE));
+    }
+
 }

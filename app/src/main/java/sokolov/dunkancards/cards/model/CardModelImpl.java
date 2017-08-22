@@ -32,4 +32,28 @@ public class CardModelImpl implements CardModel {
     public String title() {
         return title;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CardModelImpl cardModel = (CardModelImpl) o;
+
+        if (id != cardModel.id) return false;
+        if (categoryId != cardModel.categoryId) return false;
+        if (imgPath != null ? !imgPath.equals(cardModel.imgPath) : cardModel.imgPath != null)
+            return false;
+        return title != null ? title.equals(cardModel.title) : cardModel.title == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + categoryId;
+        result = 31 * result + (imgPath != null ? imgPath.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        return result;
+    }
 }
