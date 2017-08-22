@@ -5,8 +5,12 @@ import sokolov.dunkancards.categories.model.CategoryModel;
 public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
 
     private final CategoryModel model;
+    private final int cardsCount;
 
-    public CategoryDisplayModelFromDataModel(CategoryModel model) {this.model = model;}
+    public CategoryDisplayModelFromDataModel(CategoryModel model, int cardsCount) {
+        this.model = model;
+        this.cardsCount = cardsCount;
+    }
 
     @Override
     public int id() {
@@ -26,7 +30,25 @@ public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
     @Override
     public String cardsCount() {
         return
-                String.valueOf(
-                        model.cardsCount());
+                String.valueOf(cardsCount);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CategoryDisplayModelFromDataModel that = (CategoryDisplayModelFromDataModel) o;
+
+        if (cardsCount != that.cardsCount) return false;
+        return model != null ? model.equals(that.model) : that.model == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = model != null ? model.hashCode() : 0;
+        result = 31 * result + cardsCount;
+        return result;
     }
 }

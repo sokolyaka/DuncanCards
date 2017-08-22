@@ -11,11 +11,11 @@ public class InMemoryCategoriesRepository implements CategoriesRepository {
 
     public InMemoryCategoriesRepository() {
         categories = Arrays.asList(
-                new CategoryModelImpl(TRANSPORT_ID, "Transport", "stub_category_img.png", 11),
-                new CategoryModelImpl(ANIMALS_ID, "Animals", "stub_category_img.png", 12),
-                new CategoryModelImpl(NUMBERS_ID, "Numbers", "stub_category_img.png", 13),
-                new CategoryModelImpl(VEGETABLES_ID, "Vegetables", "stub_category_img.png", 14),
-                new CategoryModelImpl(FRUITS_ID, "Fruits", "", 15));
+                new CategoryModelImpl(TRANSPORT_ID, "Transport", "stub_category_img.png"),
+                new CategoryModelImpl(ANIMALS_ID, "Animals", "stub_category_img.png"),
+                new CategoryModelImpl(NUMBERS_ID, "Numbers", "stub_category_img.png"),
+                new CategoryModelImpl(VEGETABLES_ID, "Vegetables", "stub_category_img.png"),
+                new CategoryModelImpl(FRUITS_ID, "Fruits", ""));
     }
 
     @Override
