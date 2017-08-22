@@ -5,5 +5,4 @@ public interface CategoryModel {
     int id();
     String title();
     String previewPath();
-    int cardsCount();
 }

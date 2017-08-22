@@ -21,10 +21,10 @@ public class CardFragment extends Fragment {
 
     private static final String VIEW_MODEL = "VIEW_MODEL";
 
-    public static CardFragment newInstance(CardViewModel viewModel) {
+    public static CardFragment newInstance(CardDisplayModel viewModel) {
         CardFragment fragment = new CardFragment();
         Bundle args = new Bundle();
-        args.putSerializable(VIEW_MODEL, new SerializableCardViewModel(viewModel));
+        args.putSerializable(VIEW_MODEL, new SerializableCardDisplayModel(viewModel));
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,8 +34,8 @@ public class CardFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_cards, container, false);
 
-        SerializableCardViewModel viewModel =
-                (SerializableCardViewModel) getArguments().getSerializable(VIEW_MODEL);
+        SerializableCardDisplayModel viewModel =
+                (SerializableCardDisplayModel) getArguments().getSerializable(VIEW_MODEL);
 
         bindTitle(rootView, viewModel);
         bindImg(rootView, viewModel, getContext());
@@ -43,7 +43,7 @@ public class CardFragment extends Fragment {
         return rootView;
     }
 
-    private static void bindImg(View rootView, SerializableCardViewModel viewModel, Context context) {
+    private static void bindImg(View rootView, SerializableCardDisplayModel viewModel, Context context) {
         ImageView img = (ImageView) rootView.findViewById(R.id.img);
 
         try {
@@ -73,7 +73,7 @@ public class CardFragment extends Fragment {
         }
     }
 
-    private static void bindTitle(View rootView, SerializableCardViewModel viewModel) {
+    private static void bindTitle(View rootView, SerializableCardDisplayModel viewModel) {
         TextView textView = (TextView) rootView.findViewById(R.id.title);
         textView.setText(viewModel.title());
     }

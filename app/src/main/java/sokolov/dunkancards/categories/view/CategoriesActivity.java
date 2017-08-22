@@ -16,11 +16,14 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
 
 public class CategoriesActivity extends AppCompatActivity implements CategoriesView {
+
+    public static final String CATEGORY_DISPLAY_MODEL = "CATEGORY_DISPLAY_MODEL";
 
     private CategoriesPresenterImpl presenter;
     private CategoriesAdapter mAdapter;
@@ -54,7 +57,8 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         this,
                         new CategoriesInteractorImpl(
                                 ((DuncanCardsApp) getApplication())
-                                        .getCategoriesRepository()));
+                                        .getCategoriesRepository(),
+                                new CardsInMemoryRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(
@@ -63,7 +67,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         new CategoriesAdapter.OnItemClickListener() {
 
                             @Override
-                            public void onItemClick(CategoryViewModel item) {
+                            public void onItemClick(CategoryDisplayModel item) {
                                 presenter.onCategorySelected(item);
                             }
                         })
@@ -87,12 +91,14 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     }
 
     @Override
-    public void setCategories(List<CategoryViewModel> categories) {
+    public void setCategories(List<CategoryDisplayModel> categories) {
         mAdapter.updateData(categories);
     }
 
     @Override
-    public void launchCategoryView() {
-        startActivity(new Intent(this, CardsActivity.class));
+    public void launchCategoryView(CategoryDisplayModel item) {
+        Intent intent = new Intent(this, CardsActivity.class);
+        intent.putExtra(CATEGORY_DISPLAY_MODEL, new SerializableCategoryDisplayModel(item));
+        startActivity(intent);
     }
 }

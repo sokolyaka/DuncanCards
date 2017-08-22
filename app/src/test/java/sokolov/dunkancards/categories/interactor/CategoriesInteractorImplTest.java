@@ -2,42 +2,39 @@ package sokolov.dunkancards.categories.interactor;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Answers;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-import sokolov.dunkancards.categories.view.CategoryViewModel;
-import sokolov.dunkancards.categories.model.CategoriesRepository;
+import sokolov.dunkancards.categories.model.CategoryModelImpl;
+import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
+import sokolov.dunkancards.repository.MockCardsRepository;
+import sokolov.dunkancards.repository.MockCategoriesRepository;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static java.util.Collections.singletonList;
+import static org.junit.Assert.assertEquals;
+import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
 public class CategoriesInteractorImplTest {
 
-    private CategoriesInteractorImpl categoriesInteractor;
-    @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoriesRepository categoriesRepository;
-    @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoryViewModel categoryViewModel;
+    private CategoriesInteractor categoriesInteractor;
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
-
         categoriesInteractor =
-                new CategoriesInteractorImpl(categoriesRepository);
+                new CategoriesInteractorImpl(
+                        new MockCategoriesRepository(),
+                        new MockCardsRepository());
     }
 
     @Test
     public void testLoadCategories() {
-        categoriesInteractor.loadCategories();
-        verify(categoriesRepository, times(1))
-                .getAllCategories();
-    }
-
-    @Test
-    public void testSelectedCategory() {
-        categoriesInteractor.selectedCategory(categoryViewModel);
-        verify(categoriesRepository, times(1)).saveLastSelectedCategory(categoryViewModel.id());
+        assertEquals(
+                singletonList(
+                        new CategoryDisplayModelFromDataModel(
+                                new CategoryModelImpl(
+                                        TRANSPORT_ID,
+                                        "Title",
+                                        "previewPath"),
+                                10)),
+                categoriesInteractor
+                        .loadCategories());
     }
 }

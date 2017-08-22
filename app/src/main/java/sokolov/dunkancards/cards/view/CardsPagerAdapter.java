@@ -8,9 +8,9 @@ import java.util.List;
 
 public class CardsPagerAdapter extends FragmentPagerAdapter {
 
-    private final List<CardViewModel> cards;
+    private final List<CardDisplayModel> cards;
 
-    public CardsPagerAdapter(FragmentManager fm, List<CardViewModel> cards) {
+    public CardsPagerAdapter(FragmentManager fm, List<CardDisplayModel> cards) {
         super(fm);
         this.cards = cards;
     }

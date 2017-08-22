@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import sokolov.dunkancards.categories.interactor.CategoriesInteractor;
 import sokolov.dunkancards.categories.view.CategoriesView;
-import sokolov.dunkancards.categories.view.CategoryViewModel;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -20,7 +20,7 @@ public class CategoriesPresenterImplTest {
     @Mock(answer = Answers.RETURNS_MOCKS)
     private CategoriesView categoriesView;
     @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoryViewModel categoryViewModel;
+    private CategoryDisplayModel categoryDisplayModel;
     @Mock(answer = Answers.RETURNS_MOCKS)
     private CategoriesInteractor categoriesInteractor;
     private CategoriesPresenterImpl categoriesPresenter;
@@ -39,13 +39,12 @@ public class CategoriesPresenterImplTest {
         verify(categoriesInteractor, times(1))
                 .loadCategories();
         verify(categoriesView, times(1))
-                .setCategories(new ArrayList<CategoryViewModel>());
+                .setCategories(new ArrayList<CategoryDisplayModel>());
     }
 
     @Test
     public void testOnCategorySelected() {
-        categoriesPresenter.onCategorySelected(categoryViewModel);
-        verify(categoriesInteractor, times(1)).selectedCategory(categoryViewModel);
-        verify(categoriesView, times(1)).launchCategoryView();
+        categoriesPresenter.onCategorySelected(categoryDisplayModel);
+        verify(categoriesView, times(1)).launchCategoryView(categoryDisplayModel);
     }
 }

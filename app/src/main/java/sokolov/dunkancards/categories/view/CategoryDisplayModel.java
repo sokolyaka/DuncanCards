@@ -1,6 +1,6 @@
 package sokolov.dunkancards.categories.view;
 
-public interface CategoryViewModel {
+public interface CategoryDisplayModel {
 
     int id();
 

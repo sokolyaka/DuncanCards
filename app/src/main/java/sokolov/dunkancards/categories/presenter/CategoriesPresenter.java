@@ -1,10 +1,10 @@
 package sokolov.dunkancards.categories.presenter;
 
-import sokolov.dunkancards.categories.view.CategoryViewModel;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
 interface CategoriesPresenter {
 
     void onViewShow();
 
-    void onCategorySelected(CategoryViewModel item);
+    void onCategorySelected(CategoryDisplayModel item);
 }

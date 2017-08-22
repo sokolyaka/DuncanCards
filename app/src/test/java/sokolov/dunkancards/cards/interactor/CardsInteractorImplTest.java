@@ -8,6 +8,7 @@ import org.mockito.MockitoAnnotations;
 
 import sokolov.dunkancards.cards.model.CardsRepository;
 import sokolov.dunkancards.categories.model.CategoriesRepository;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -19,20 +20,21 @@ public class CardsInteractorImplTest {
     private CardsRepository cardsRepository;
     @Mock(answer = Answers.RETURNS_MOCKS)
     private CategoriesRepository categoryRepository;
+    @Mock(answer = Answers.RETURNS_MOCKS)
+    private CategoryDisplayModel categoryDisplayModel;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        cardsInteractor = new CardsInteractorImpl(cardsRepository, categoryRepository);
+        cardsInteractor = new CardsInteractorImpl(cardsRepository);
     }
 
     @Test
     public void testLoadCards() {
-        cardsInteractor.loadCards();
-        verify(categoryRepository, times(1)).getLastSelectedCategoryId();
+        cardsInteractor.loadCards(categoryDisplayModel);
         verify(cardsRepository, times(1))
                 .getCardsByCategoryId(
-                        categoryRepository.getLastSelectedCategoryId());
+                        categoryDisplayModel.id());
     }
 
 }
