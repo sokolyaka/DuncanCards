@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import java.util.List;
 
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
+import sokolov.dunkancards.cards.model.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
@@ -57,7 +57,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         this,
                         new CategoriesInteractorImpl(
                                 new InMemoryCategoriesRepository(),
-                                new CardsInMemoryRepository()));
+                                new InMemoryCardsRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(

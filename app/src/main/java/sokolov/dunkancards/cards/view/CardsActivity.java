@@ -10,7 +10,7 @@ import java.util.List;
 
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.interactor.CardsInteractorImpl;
-import sokolov.dunkancards.cards.model.CardsInMemoryRepository;
+import sokolov.dunkancards.cards.model.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.presenter.CardsPresenter;
 import sokolov.dunkancards.cards.presenter.CardsPresenterImpl;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
@@ -31,7 +31,7 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
                 new CardsPresenterImpl(
                         this,
                         new CardsInteractorImpl(
-                                new CardsInMemoryRepository()));
+                                new InMemoryCardsRepository()));
 
         cardsPresenter.onCreate(
                 (CategoryDisplayModel) getIntent()

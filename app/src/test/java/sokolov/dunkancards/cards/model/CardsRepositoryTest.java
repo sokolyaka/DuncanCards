@@ -17,7 +17,7 @@ public class CardsRepositoryTest {
 
     @Before
     public void setUp() {
-        cardsRepository = new CardsInMemoryRepository();
+        cardsRepository = new InMemoryCardsRepository();
         transportModels =
                 Arrays.asList(
                         new CardModelImpl(0, TRANSPORT_ID, "transport/truck.jpg", "Truck"),
