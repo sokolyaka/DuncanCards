@@ -18,10 +18,10 @@ import sokolov.dunkancards.R;
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
     private final AssetManager assetManager;
-    private final List<CategoryViewModel> items;
+    private final List<CategoryDisplayModel> items;
     private final OnItemClickListener listener;
 
-    public CategoriesAdapter(AssetManager assetManager, List<CategoryViewModel> items, OnItemClickListener listener) {
+    public CategoriesAdapter(AssetManager assetManager, List<CategoryDisplayModel> items, OnItemClickListener listener) {
         this.assetManager = assetManager;
         this.items = items;
         this.listener = listener;
@@ -45,7 +45,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         return items.size();
     }
 
-    public void updateData(List<CategoryViewModel> viewModels) {
+    public void updateData(List<CategoryDisplayModel> viewModels) {
         items.clear();
         items.addAll(viewModels);
         notifyDataSetChanged();
@@ -66,7 +66,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             cardsCount = (TextView) itemView.findViewById(R.id.cards_count);
         }
 
-        public void bind(final CategoryViewModel viewModel, final OnItemClickListener listener, AssetManager assetManager) {
+        public void bind(final CategoryDisplayModel viewModel, final OnItemClickListener listener, AssetManager assetManager) {
             title.setText(viewModel.title());
 
             try {
@@ -93,7 +93,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     }
 
     public interface OnItemClickListener {
-        void onItemClick(CategoryViewModel item);
+        void onItemClick(CategoryDisplayModel item);
     }
 
 }

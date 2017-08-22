@@ -25,7 +25,7 @@ class InitCategoriesRecyclerView {
         CategoriesAdapter adapter =
                 new CategoriesAdapter(
                         context.getAssets(),
-                        new LinkedList<CategoryViewModel>(),
+                        new LinkedList<CategoryDisplayModel>(),
                         listener);
 
         recyclerView.setAdapter(adapter);

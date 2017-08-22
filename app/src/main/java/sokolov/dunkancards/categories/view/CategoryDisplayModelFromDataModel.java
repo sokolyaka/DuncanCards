@@ -2,11 +2,11 @@ package sokolov.dunkancards.categories.view;
 
 import sokolov.dunkancards.categories.model.CategoryModel;
 
-public class CategoryViewModelFromDataModel implements CategoryViewModel {
+public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
 
     private final CategoryModel model;
 
-    public CategoryViewModelFromDataModel(CategoryModel model) {this.model = model;}
+    public CategoryDisplayModelFromDataModel(CategoryModel model) {this.model = model;}
 
     @Override
     public int id() {

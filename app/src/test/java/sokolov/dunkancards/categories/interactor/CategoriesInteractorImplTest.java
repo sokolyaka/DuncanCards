@@ -6,7 +6,7 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import sokolov.dunkancards.categories.view.CategoryViewModel;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.model.CategoriesRepository;
 
 import static org.mockito.Mockito.times;
@@ -18,7 +18,7 @@ public class CategoriesInteractorImplTest {
     @Mock(answer = Answers.RETURNS_MOCKS)
     private CategoriesRepository categoriesRepository;
     @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoryViewModel categoryViewModel;
+    private CategoryDisplayModel categoryDisplayModel;
 
     @Before
     public void setUp() {
@@ -37,7 +37,7 @@ public class CategoriesInteractorImplTest {
 
     @Test
     public void testSelectedCategory() {
-        categoriesInteractor.selectedCategory(categoryViewModel);
-        verify(categoriesRepository, times(1)).saveLastSelectedCategory(categoryViewModel.id());
+        categoriesInteractor.selectedCategory(categoryDisplayModel);
+        verify(categoriesRepository, times(1)).saveLastSelectedCategory(categoryDisplayModel.id());
     }
 }

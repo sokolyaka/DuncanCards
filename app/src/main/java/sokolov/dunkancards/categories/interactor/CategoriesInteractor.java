@@ -2,11 +2,11 @@ package sokolov.dunkancards.categories.interactor;
 
 import java.util.List;
 
-import sokolov.dunkancards.categories.view.CategoryViewModel;
+import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
 public interface CategoriesInteractor {
 
-    List<CategoryViewModel> loadCategories();
+    List<CategoryDisplayModel> loadCategories();
 
-    void selectedCategory(CategoryViewModel categoryViewModel);
+    void selectedCategory(CategoryDisplayModel categoryDisplayModel);
 }

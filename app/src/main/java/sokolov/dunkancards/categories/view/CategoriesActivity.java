@@ -63,7 +63,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         new CategoriesAdapter.OnItemClickListener() {
 
                             @Override
-                            public void onItemClick(CategoryViewModel item) {
+                            public void onItemClick(CategoryDisplayModel item) {
                                 presenter.onCategorySelected(item);
                             }
                         })
@@ -87,7 +87,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     }
 
     @Override
-    public void setCategories(List<CategoryViewModel> categories) {
+    public void setCategories(List<CategoryDisplayModel> categories) {
         mAdapter.updateData(categories);
     }
 
