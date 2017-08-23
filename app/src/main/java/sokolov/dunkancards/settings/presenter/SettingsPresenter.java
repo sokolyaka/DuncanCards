@@ -4,4 +4,6 @@ public interface SettingsPresenter {
     void captionChecked(boolean isChecked);
 
     void onResume();
+
+    void selectLanguage(String lang);
 }

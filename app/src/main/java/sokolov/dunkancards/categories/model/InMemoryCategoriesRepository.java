@@ -1,21 +1,29 @@
 package sokolov.dunkancards.categories.model;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static sokolov.dunkancards.categories.model.CategoriesConstants.*;
 
 public class InMemoryCategoriesRepository implements CategoriesRepository {
 
-    private final List<? extends CategoryModel> categories;
+    private static final Map<Integer, Map<String, String>> titles;
+    static {
+        titles = new HashMap<>();
 
-    public InMemoryCategoriesRepository() {
+        Map<String, String> transport = new HashMap<>();
+        transport.put("en", "transport");
+        transport.put("ua", "Транспорт");
+        transport.put("ru", "Транспорт");
+        titles.put(TRANSPORT_ID, transport);
+
+    }
+    private final static List<? extends CategoryModel> categories;
+    static {
         categories = Arrays.asList(
-                new CategoryModelImpl(TRANSPORT_ID, "Transport", "stub_category_img.png"),
-                new CategoryModelImpl(ANIMALS_ID, "Animals", "stub_category_img.png"),
-                new CategoryModelImpl(NUMBERS_ID, "Numbers", "stub_category_img.png"),
-                new CategoryModelImpl(VEGETABLES_ID, "Vegetables", "stub_category_img.png"),
-                new CategoryModelImpl(FRUITS_ID, "Fruits", ""));
+                new CategoryModelImpl(TRANSPORT_ID, titles.get(TRANSPORT_ID), "stub_category_img.png"));
     }
 
     @Override

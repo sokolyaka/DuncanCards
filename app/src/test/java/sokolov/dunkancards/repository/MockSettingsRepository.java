@@ -1,23 +1,27 @@
-package sokolov.dunkancards.settings.model;
+package sokolov.dunkancards.repository;
 
-public class InMemorySettingsRepository implements SettingsRepository {
+import sokolov.dunkancards.settings.model.SettingsRepository;
 
-    private boolean isCaptionChecked;
+
+public class MockSettingsRepository implements SettingsRepository {
+
     private String lang;
+
+    public MockSettingsRepository(String lang) {this.lang = lang;}
 
     @Override
     public void saveCaptionState(boolean isChecked) {
-        isCaptionChecked = isChecked;
+
     }
 
     @Override
     public boolean getCaptionState() {
-        return isCaptionChecked;
+        return false;
     }
 
     @Override
     public void saveLanguage(String lang) {
-        this.lang = lang;
+
     }
 
     @Override

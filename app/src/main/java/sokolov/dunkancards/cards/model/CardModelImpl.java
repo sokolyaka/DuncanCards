@@ -1,12 +1,14 @@
 package sokolov.dunkancards.cards.model;
 
+import java.util.Map;
+
 public class CardModelImpl implements CardModel {
     private final int id;
     private final int categoryId;
     private final String imgPath;
-    private final String title;
+    private final Map<String, String> title;
 
-    public CardModelImpl(int id, int categoryId, String imgPath, String title) {
+    public CardModelImpl(int id, int categoryId, String imgPath, Map<String, String> title) {
         this.id = id;
         this.categoryId = categoryId;
         this.imgPath = imgPath;
@@ -29,7 +31,7 @@ public class CardModelImpl implements CardModel {
     }
 
     @Override
-    public String title() {
+    public Map<String, String> title() {
         return title;
     }
 

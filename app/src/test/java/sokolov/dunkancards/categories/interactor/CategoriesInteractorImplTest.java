@@ -3,14 +3,14 @@ package sokolov.dunkancards.categories.interactor;
 import org.junit.Before;
 import org.junit.Test;
 
-import sokolov.dunkancards.categories.model.CategoryModelImpl;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
 import sokolov.dunkancards.repository.MockCardsRepository;
 import sokolov.dunkancards.repository.MockCategoriesRepository;
+import sokolov.dunkancards.repository.MockSettingsRepository;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
-import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
+import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGORY;
 
 public class CategoriesInteractorImplTest {
 
@@ -21,7 +21,8 @@ public class CategoriesInteractorImplTest {
         categoriesInteractor =
                 new CategoriesInteractorImpl(
                         new MockCategoriesRepository(),
-                        new MockCardsRepository());
+                        new MockCardsRepository(),
+                        new MockSettingsRepository("en"));
     }
 
     @Test
@@ -29,11 +30,9 @@ public class CategoriesInteractorImplTest {
         assertEquals(
                 singletonList(
                         new CategoryDisplayModelFromDataModel(
-                                new CategoryModelImpl(
-                                        TRANSPORT_ID,
-                                        "Title",
-                                        "previewPath"),
-                                10)),
+                                TRANSPORT_CATEGORY,
+                                10,
+                                "en")),
                 categoriesInteractor
                         .loadCategories());
     }

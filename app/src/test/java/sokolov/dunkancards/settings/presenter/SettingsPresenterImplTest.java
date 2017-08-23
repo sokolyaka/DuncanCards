@@ -37,9 +37,20 @@ public class SettingsPresenterImplTest {
     @Test
     public void testOnResume() {
         settingsPresenter.captionChecked(true);
+        settingsPresenter.selectLanguage("en");
+
         settingsPresenter.onResume();
         verify(settingsRepository, times(1)).getCaptionState();
         verify(settingsView, times(1)).updateCaptionState(true);
+        verify(settingsRepository, times(1)).getLanguage();
+        verify(settingsView, times(1)).updateLanguage("en");
     }
+
+    @Test
+    public void testLanguageSelected() throws Exception {
+        settingsPresenter.selectLanguage("en");
+        verify(settingsRepository, times(1)).saveLanguage("en");
+    }
+
 
 }

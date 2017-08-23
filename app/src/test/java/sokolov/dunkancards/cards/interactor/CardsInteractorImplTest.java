@@ -1,40 +1,36 @@
 package sokolov.dunkancards.cards.interactor;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Answers;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import sokolov.dunkancards.cards.model.CardsRepository;
-import sokolov.dunkancards.categories.model.CategoriesRepository;
-import sokolov.dunkancards.categories.view.CategoryDisplayModel;
+import sokolov.dunkancards.categories.mock.MockIdCategoryDisplay;
+import sokolov.dunkancards.repository.MockCardsRepository;
+import sokolov.dunkancards.repository.MockSettingsRepository;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static sokolov.dunkancards.cards.CardsTestData.TRANSPORT_CARD_DISPLAY_MODELS_ENG;
+import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
 public class CardsInteractorImplTest {
 
     private CardsInteractorImpl cardsInteractor;
-    @Mock(answer = Answers.RETURNS_MOCKS)
-    private CardsRepository cardsRepository;
-    @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoriesRepository categoryRepository;
-    @Mock(answer = Answers.RETURNS_MOCKS)
-    private CategoryDisplayModel categoryDisplayModel;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        cardsInteractor = new CardsInteractorImpl(cardsRepository);
+        cardsInteractor = new CardsInteractorImpl(
+                new MockCardsRepository(),
+                new MockSettingsRepository("en"));
     }
 
     @Test
     public void testLoadCards() {
-        cardsInteractor.loadCards(categoryDisplayModel);
-        verify(cardsRepository, times(1))
-                .getCardsByCategoryId(
-                        categoryDisplayModel.id());
+        Assert.assertEquals(
+                TRANSPORT_CARD_DISPLAY_MODELS_ENG,
+                cardsInteractor
+                        .loadCards(
+                                new MockIdCategoryDisplay(TRANSPORT_ID)));
     }
 
 }

@@ -5,16 +5,15 @@ import java.util.List;
 
 import sokolov.dunkancards.categories.model.CategoriesRepository;
 import sokolov.dunkancards.categories.model.CategoryModel;
-import sokolov.dunkancards.categories.model.CategoryModelImpl;
 
-import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
+import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGORY;
 
 
 public class MockCategoriesRepository implements CategoriesRepository {
 
     @Override
     public List<CategoryModel> getAllCategories() {
-        return (List) Collections.singletonList(new CategoryModelImpl(TRANSPORT_ID, "Title", "previewPath"));
+        return (List) Collections.singletonList(TRANSPORT_CATEGORY);
     }
 
 }

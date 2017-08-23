@@ -6,10 +6,12 @@ public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
 
     private final CategoryModel model;
     private final int cardsCount;
+    private final String lang;
 
-    public CategoryDisplayModelFromDataModel(CategoryModel model, int cardsCount) {
+    public CategoryDisplayModelFromDataModel(CategoryModel model, int cardsCount, String lang) {
         this.model = model;
         this.cardsCount = cardsCount;
+        this.lang = lang;
     }
 
     @Override
@@ -19,7 +21,7 @@ public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
 
     @Override
     public String title() {
-        return model.title();
+        return model.title().get(lang);
     }
 
     @Override

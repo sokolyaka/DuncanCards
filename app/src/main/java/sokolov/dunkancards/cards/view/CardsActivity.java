@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import java.util.List;
 
+import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.interactor.CardsInteractorImpl;
 import sokolov.dunkancards.cards.model.InMemoryCardsRepository;
@@ -31,7 +32,9 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
                 new CardsPresenterImpl(
                         this,
                         new CardsInteractorImpl(
-                                new InMemoryCardsRepository()));
+                                new InMemoryCardsRepository(),
+                                ((DuncanCardsApp) getApplication())
+                                        .getSettingsRepository()));
 
         cardsPresenter.onCreate(
                 (CategoryDisplayModel) getIntent()
