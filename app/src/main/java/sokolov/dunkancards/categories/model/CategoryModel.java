@@ -1,8 +1,10 @@
 package sokolov.dunkancards.categories.model;
 
+import java.util.Map;
+
 public interface CategoryModel {
 
     int id();
-    String title();
+    Map<String, String> title();
     String previewPath();
 }

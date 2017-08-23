@@ -14,6 +14,7 @@ import android.view.WindowManager;
 
 import java.util.List;
 
+import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
 import sokolov.dunkancards.cards.model.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
@@ -57,7 +58,8 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         this,
                         new CategoriesInteractorImpl(
                                 new InMemoryCategoriesRepository(),
-                                new InMemoryCardsRepository()));
+                                new InMemoryCardsRepository(),
+                                ((DuncanCardsApp) getApplication()).getSettingsRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(

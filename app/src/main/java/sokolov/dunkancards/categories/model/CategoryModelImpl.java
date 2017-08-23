@@ -1,12 +1,14 @@
 package sokolov.dunkancards.categories.model;
 
+import java.util.Map;
+
 public class CategoryModelImpl implements CategoryModel {
 
     private final int id;
-    private final String title;
+    private final Map<String, String> title;
     private final String previewPath;
 
-    public CategoryModelImpl(int id, String title, String previewPath) {
+    public CategoryModelImpl(int id, Map<String, String> title, String previewPath) {
         this.id = id;
         this.title = title;
         this.previewPath = previewPath;
@@ -18,7 +20,7 @@ public class CategoryModelImpl implements CategoryModel {
     }
 
     @Override
-    public String title() {
+    public Map<String, String> title() {
         return title;
     }
 

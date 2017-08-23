@@ -8,15 +8,18 @@ import sokolov.dunkancards.categories.model.CategoriesRepository;
 import sokolov.dunkancards.categories.model.CategoryModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
+import sokolov.dunkancards.settings.model.SettingsRepository;
 
 public class CategoriesInteractorImpl implements CategoriesInteractor {
 
     private final CategoriesRepository categoryRepository;
     private final CardsRepository cardsRepository;
+    private final SettingsRepository settingsRepository;
 
-    public CategoriesInteractorImpl(CategoriesRepository categoryRepository, CardsRepository cardsRepository) {
+    public CategoriesInteractorImpl(CategoriesRepository categoryRepository, CardsRepository cardsRepository, SettingsRepository settingsRepository) {
         this.categoryRepository = categoryRepository;
         this.cardsRepository = cardsRepository;
+        this.settingsRepository = settingsRepository;
     }
 
     @Override
@@ -30,7 +33,8 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
                             cardsRepository
                                     .getCardsByCategoryId(
                                             model.id())
-                                    .size()));
+                                    .size(),
+                            settingsRepository.getLanguage()));
         }
         return viewModels;
     }
