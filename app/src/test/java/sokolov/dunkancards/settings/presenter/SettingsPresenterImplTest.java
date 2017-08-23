@@ -42,4 +42,11 @@ public class SettingsPresenterImplTest {
         verify(settingsView, times(1)).updateCaptionState(true);
     }
 
+    @Test
+    public void testLanguageSelected() throws Exception {
+        settingsPresenter.selectLanguage("en");
+        verify(settingsRepository, times(1)).saveLanguage("en");
+    }
+
+
 }

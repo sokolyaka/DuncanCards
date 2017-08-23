@@ -3,6 +3,7 @@ package sokolov.dunkancards.settings.model;
 public class InMemorySettingsRepository implements SettingsRepository {
 
     private boolean isCaptionChecked;
+    private String lang;
 
     @Override
     public void saveCaptionState(boolean isChecked) {
@@ -12,5 +13,10 @@ public class InMemorySettingsRepository implements SettingsRepository {
     @Override
     public boolean getCaptionState() {
         return isCaptionChecked;
+    }
+
+    @Override
+    public void saveLanguage(String lang) {
+        this.lang = lang;
     }
 }

@@ -4,4 +4,6 @@ public interface SettingsRepository {
     void saveCaptionState(boolean isChecked);
 
     boolean getCaptionState();
+
+    void saveLanguage(String lang);
 }
