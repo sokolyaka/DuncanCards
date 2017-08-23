@@ -19,4 +19,9 @@ public class InMemorySettingsRepository implements SettingsRepository {
     public void saveLanguage(String lang) {
         this.lang = lang;
     }
+
+    @Override
+    public String getLanguage() {
+        return lang;
+    }
 }

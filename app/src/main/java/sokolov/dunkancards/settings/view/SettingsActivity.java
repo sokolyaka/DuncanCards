@@ -40,4 +40,9 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
         ((CheckBox) findViewById(R.id.caption_check_box))
                 .setChecked(isChecked);
     }
+
+    @Override
+    public void updateLanguage(String lang) {
+        //// TODO: 23.08.2017
+    }
 }

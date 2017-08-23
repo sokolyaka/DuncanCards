@@ -6,4 +6,6 @@ public interface SettingsRepository {
     boolean getCaptionState();
 
     void saveLanguage(String lang);
+
+    String getLanguage();
 }

@@ -22,6 +22,8 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     public void onResume() {
         settingsView.updateCaptionState(
                 settingsRepository.getCaptionState());
+        settingsView.updateLanguage(
+                settingsRepository.getLanguage());
     }
 
     @Override
