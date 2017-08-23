@@ -1,4 +1,4 @@
-package sokolov.dunkancards.cards.model;
+package sokolov.dunkancards.cards;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,11 +6,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sokolov.dunkancards.cards.model.CardModel;
+import sokolov.dunkancards.cards.model.CardModelImpl;
+import sokolov.dunkancards.cards.view.CardDisplayFormModel;
+import sokolov.dunkancards.cards.view.CardDisplayModel;
+
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
-public class InMemoryCardsRepository implements CardsRepository {
+public class CardsTestData {
 
-    private static final Map<Integer, Map<String, String>> TITLES;
+    public static final Map<Integer, Map<String, String>> TITLES;
+
     static {
         TITLES = new HashMap<>();
 
@@ -75,30 +81,46 @@ public class InMemoryCardsRepository implements CardsRepository {
         TITLES.put(9, fireTruck);
     }
 
-    private static final List<? extends CardModel> models;
+    public static final List<? extends CardModel> TRANSPORT_CARD_MODELS;
+
     static {
-        models =
+        TRANSPORT_CARD_MODELS =
                 Arrays.asList(
                         new CardModelImpl(0, TRANSPORT_ID, "transport/truck.jpg", TITLES.get(0)),
-                        new CardModelImpl(1, TRANSPORT_ID, "transport/ambulance.jpg", TITLES.get(1)),
+                        new CardModelImpl(
+                                1,
+                                TRANSPORT_ID,
+                                "transport/ambulance.jpg",
+                                TITLES.get(1)),
                         new CardModelImpl(2, TRANSPORT_ID, "transport/auto.jpg", TITLES.get(2)),
                         new CardModelImpl(3, TRANSPORT_ID, "transport/bicycle.jpg", TITLES.get(3)),
                         new CardModelImpl(4, TRANSPORT_ID, "transport/bus.jpg", TITLES.get(4)),
-                        new CardModelImpl(5, TRANSPORT_ID, "transport/motorcycle.jpg", TITLES.get(5)),
+                        new CardModelImpl(
+                                5,
+                                TRANSPORT_ID,
+                                "transport/motorcycle.jpg",
+                                TITLES.get(5)),
                         new CardModelImpl(6, TRANSPORT_ID, "transport/police.jpg", TITLES.get(6)),
                         new CardModelImpl(7, TRANSPORT_ID, "transport/tram.jpg", TITLES.get(7)),
-                        new CardModelImpl(8, TRANSPORT_ID, "transport/trolleybus.jpg", TITLES.get(8)),
-                        new CardModelImpl(9, TRANSPORT_ID, "transport/fire truck.jpg", TITLES.get(9)));
+                        new CardModelImpl(
+                                8,
+                                TRANSPORT_ID,
+                                "transport/trolleybus.jpg",
+                                TITLES.get(8)),
+                        new CardModelImpl(
+                                9,
+                                TRANSPORT_ID,
+                                "transport/fire truck.jpg",
+                                TITLES.get(9)));
     }
 
-    @Override
-    public List<CardModel> getCardsByCategoryId(int id) {
-        List<CardModel> result = new ArrayList<>();
-        for (CardModel model : models) {
-            if (model.categoryId() == id) {
-                result.add(model);
-            }
+    public static final List<CardDisplayModel> TRANSPORT_CARD_DISPLAY_MODELS_ENG;
+
+    static {
+        TRANSPORT_CARD_DISPLAY_MODELS_ENG = new ArrayList<>();
+
+        for (CardModel model : TRANSPORT_CARD_MODELS) {
+            TRANSPORT_CARD_DISPLAY_MODELS_ENG.add(new CardDisplayFormModel(model, "en"));
         }
-        return result;
     }
 }

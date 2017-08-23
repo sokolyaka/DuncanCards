@@ -1,5 +1,7 @@
 package sokolov.dunkancards.cards.model;
 
+import java.util.Map;
+
 public interface CardModel {
     int id();
 
@@ -7,5 +9,5 @@ public interface CardModel {
 
     String imgPath();
 
-    String title();
+    Map<String, String> title();
 }
