@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import sokolov.dunkancards.domain.entity.category.CategoryModel;
-import sokolov.dunkancards.domain.entity.category.CategoryModelImpl;
 
 import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.*;
 
@@ -23,14 +22,14 @@ public class InMemoryCategoriesRepository implements CategoriesRepository {
         titles.put(TRANSPORT_ID, transport);
 
     }
-    private final static List<? extends CategoryModel> categories;
+    private final static List<? extends Category> categories;
     static {
         categories = Arrays.asList(
-                new CategoryModelImpl(TRANSPORT_ID, titles.get(TRANSPORT_ID), "stub_category_img.png"));
+                new CategoryModel(TRANSPORT_ID, titles.get(TRANSPORT_ID), "stub_category_img.png"));
     }
 
     @Override
-    public List<CategoryModel> getAllCategories() {
-        return (List<CategoryModel>) categories;
+    public List<Category> getAllCategories() {
+        return (List<Category>) categories;
     }
 }

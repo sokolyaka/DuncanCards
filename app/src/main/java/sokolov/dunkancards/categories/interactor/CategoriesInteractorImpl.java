@@ -5,7 +5,7 @@ import java.util.List;
 
 import sokolov.dunkancards.domain.repository.card.CardsRepository;
 import sokolov.dunkancards.domain.repository.category.CategoriesRepository;
-import sokolov.dunkancards.domain.entity.category.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.Category;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
 import sokolov.dunkancards.settings.model.SettingsRepository;
@@ -24,9 +24,9 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
 
     @Override
     public List<CategoryDisplayModel> loadCategories() {
-        List<CategoryModel> dataModels = categoryRepository.getAllCategories();
+        List<Category> dataModels = categoryRepository.getAllCategories();
         List<CategoryDisplayModel> viewModels = new ArrayList<>();
-        for (CategoryModel model : dataModels) {
+        for (Category model : dataModels) {
             viewModels.add(
                     new CategoryDisplayModelFromDataModel(
                             model,

@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import sokolov.dunkancards.domain.repository.category.CategoriesRepository;
-import sokolov.dunkancards.domain.entity.category.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.Category;
 
 import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGORY;
 
@@ -12,7 +12,7 @@ import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGO
 public class MockCategoriesRepository implements CategoriesRepository {
 
     @Override
-    public List<CategoryModel> getAllCategories() {
+    public List<Category> getAllCategories() {
         return (List) Collections.singletonList(TRANSPORT_CATEGORY);
     }
 

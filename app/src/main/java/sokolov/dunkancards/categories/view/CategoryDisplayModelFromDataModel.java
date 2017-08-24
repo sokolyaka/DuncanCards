@@ -1,14 +1,14 @@
 package sokolov.dunkancards.categories.view;
 
-import sokolov.dunkancards.domain.entity.category.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.Category;
 
 public class CategoryDisplayModelFromDataModel implements CategoryDisplayModel {
 
-    private final CategoryModel model;
+    private final Category model;
     private final int cardsCount;
     private final String lang;
 
-    public CategoryDisplayModelFromDataModel(CategoryModel model, int cardsCount, String lang) {
+    public CategoryDisplayModelFromDataModel(Category model, int cardsCount, String lang) {
         this.model = model;
         this.cardsCount = cardsCount;
         this.lang = lang;
