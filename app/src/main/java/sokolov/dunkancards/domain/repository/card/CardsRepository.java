@@ -1,4 +1,4 @@
-package sokolov.dunkancards.cards.model;
+package sokolov.dunkancards.domain.repository.card;
 
 import java.util.List;
 

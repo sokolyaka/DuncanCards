@@ -17,7 +17,7 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.cards.model.InMemoryCardsRepository;
+import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;

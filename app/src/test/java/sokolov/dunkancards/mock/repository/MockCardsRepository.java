@@ -4,7 +4,7 @@ import java.util.List;
 
 import sokolov.dunkancards.cards.CardsTestData;
 import sokolov.dunkancards.domain.entity.card.CardModel;
-import sokolov.dunkancards.cards.model.CardsRepository;
+import sokolov.dunkancards.domain.repository.card.CardsRepository;
 
 
 public class MockCardsRepository implements CardsRepository {
