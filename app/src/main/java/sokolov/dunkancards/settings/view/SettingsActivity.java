@@ -8,7 +8,8 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.domain.LanguageModelImpl;
+import sokolov.dunkancards.domain.LanguageModel;
+import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
 
@@ -22,9 +23,12 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
         setContentView(R.layout.activity_settings);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        settingsPresenter = new SettingsPresenterImpl(
+        settingsPresenter =
+                new SettingsPresenterImpl(
                ((DuncanCardsApp) getApplication())
-                       .getSettingsRepository(), this);
+                       .getSettingsRepository(),
+                        new InMemoryLanguageRep(),
+                        this);
 
         ((CheckBox) findViewById(R.id.caption_check_box))
                 .setOnCheckedChangeListener(
@@ -50,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     }
 
     @Override
-    public void initLanguages(List<LanguageModelImpl> languageModels) {
+    public void initLanguages(List<LanguageModel> languageModels) {
         //// TODO: 24.08.2017
     }
 }

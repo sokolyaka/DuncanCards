@@ -6,9 +6,9 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
+import java.util.Collections;
 
-import sokolov.dunkancards.domain.LanguageModelImpl;
+import sokolov.dunkancards.domain.repository.language.LanguageRepository;
 import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
@@ -24,11 +24,13 @@ public class SettingsPresenterImplTest {
 
     @Mock
     private SettingsView settingsView;
+    @Mock
+    private LanguageRepository languageRepository;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        settingsPresenter = new SettingsPresenterImpl(settingsRepository, settingsView);
+        settingsPresenter = new SettingsPresenterImpl(settingsRepository, languageRepository, settingsView);
     }
 
     @Test
@@ -58,12 +60,8 @@ public class SettingsPresenterImplTest {
     @Test
     public void onCreate() throws Exception {
         settingsPresenter.onCreate();
-        verify(settingsView)
-                .initLanguages(
-                        Arrays.asList(
-                                new LanguageModelImpl("English", "en"),
-                                new LanguageModelImpl("Русский", "ru"),
-                                new LanguageModelImpl("Українська", "ua")));
+        verify(languageRepository).getAll();
+        verify(settingsView).initLanguages(Collections.EMPTY_LIST);
     }
 
 

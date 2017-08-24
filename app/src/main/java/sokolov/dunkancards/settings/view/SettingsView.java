@@ -2,12 +2,12 @@ package sokolov.dunkancards.settings.view;
 
 import java.util.List;
 
-import sokolov.dunkancards.domain.LanguageModelImpl;
+import sokolov.dunkancards.domain.LanguageModel;
 
 public interface SettingsView {
     void updateCaptionState(boolean isChecked);
 
     void updateLanguage(String lang);
 
-    void initLanguages(List<LanguageModelImpl> languageModels);
+    void initLanguages(List<LanguageModel> languageModels);
 }

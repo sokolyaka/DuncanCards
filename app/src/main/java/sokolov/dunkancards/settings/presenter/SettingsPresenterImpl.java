@@ -1,18 +1,18 @@
 package sokolov.dunkancards.settings.presenter;
 
-import java.util.Arrays;
-
-import sokolov.dunkancards.domain.LanguageModelImpl;
+import sokolov.dunkancards.domain.repository.language.LanguageRepository;
 import sokolov.dunkancards.settings.model.SettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 public class SettingsPresenterImpl implements SettingsPresenter {
 
     private final SettingsRepository settingsRepository;
+    private final LanguageRepository languageRepository;
     private final SettingsView settingsView;
 
-    public SettingsPresenterImpl(SettingsRepository settingsRepository, SettingsView settingsView) {
+    public SettingsPresenterImpl(SettingsRepository settingsRepository, LanguageRepository languageRepository, SettingsView settingsView) {
         this.settingsRepository = settingsRepository;
+        this.languageRepository = languageRepository;
         this.settingsView = settingsView;
     }
 
@@ -24,10 +24,8 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     @Override
     public void onCreate() {
         settingsView.initLanguages(
-                Arrays.asList(
-                        new LanguageModelImpl("English", "en"),
-                        new LanguageModelImpl("Русский", "ru"),
-                        new LanguageModelImpl("Українська", "ua")));
+                languageRepository.getAll());
+
     }
 
     @Override
