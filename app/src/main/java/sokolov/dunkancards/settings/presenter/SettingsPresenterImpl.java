@@ -44,4 +44,9 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     public void selectLanguage(String lang) {
         settingsRepository.saveLanguage(lang);
     }
+
+    @Override
+    public void onAutoScrollSelected(int periodInSeconds) {
+        settingsRepository.saveAutoScroll(periodInSeconds);
+    }
 }

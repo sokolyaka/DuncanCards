@@ -33,4 +33,9 @@ public class MockSettingsRepository implements SettingsRepository {
     public int getAutoScrollPeriodInSeconds() {
         return 0;
     }
+
+    @Override
+    public void saveAutoScroll(int periodInSeconds) {
+
+    }
 }

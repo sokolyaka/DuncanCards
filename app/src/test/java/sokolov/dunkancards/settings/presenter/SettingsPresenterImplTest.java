@@ -66,5 +66,10 @@ public class SettingsPresenterImplTest {
         verify(settingsView).initLanguages(Collections.EMPTY_LIST);
     }
 
+    @Test
+    public void testSetAutoScrollTime() throws Exception {
+        settingsPresenter.onAutoScrollSelected(1);
+        verify(settingsRepository).saveAutoScroll(1);
+    }
 
 }

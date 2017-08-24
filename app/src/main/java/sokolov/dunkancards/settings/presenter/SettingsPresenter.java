@@ -8,4 +8,6 @@ public interface SettingsPresenter {
     void captionChecked(boolean isChecked);
 
     void selectLanguage(String lang);
+
+    void onAutoScrollSelected(int periodInSeconds);
 }

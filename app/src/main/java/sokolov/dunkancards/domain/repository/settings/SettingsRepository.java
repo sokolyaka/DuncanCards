@@ -10,4 +10,6 @@ public interface SettingsRepository {
     String getLanguage();
 
     int getAutoScrollPeriodInSeconds();
+
+    void saveAutoScroll(int periodInSeconds);
 }

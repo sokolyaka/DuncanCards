@@ -30,4 +30,9 @@ public class InMemorySettingsRepository implements SettingsRepository {
     public int getAutoScrollPeriodInSeconds() {
         return autoScrollPeriodInSeconds;
     }
+
+    @Override
+    public void saveAutoScroll(int periodInSeconds) {
+        autoScrollPeriodInSeconds = periodInSeconds;
+    }
 }
