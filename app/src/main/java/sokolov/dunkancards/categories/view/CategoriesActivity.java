@@ -7,6 +7,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -19,6 +22,7 @@ import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
+import sokolov.dunkancards.settings.view.SettingsActivity;
 
 public class CategoriesActivity extends AppCompatActivity implements CategoriesView {
 
@@ -85,5 +89,23 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
         Intent intent = new Intent(this, CardsActivity.class);
         intent.putExtra(CATEGORY_DISPLAY_MODEL, new SerializableCategoryDisplayModel(item));
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.categories_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
