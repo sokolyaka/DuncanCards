@@ -33,19 +33,10 @@ public class SettingsPresenterImplTest {
     }
 
     @Test
-    public void testCaptionChecked() {
-        settingsPresenter.captionChecked(true);
-        verify(settingsRepository).saveCaptionState(true);
-    }
-
-    @Test
     public void testOnResume() {
-        settingsPresenter.captionChecked(true);
         settingsPresenter.selectLanguage("en");
 
         settingsPresenter.onResume();
-        verify(settingsRepository).getCaptionState();
-        verify(settingsView).updateCaptionState(true);
         verify(settingsRepository).getLanguage();
         verify(settingsView).updateLanguage("en");
         verify(settingsRepository).getAutoScrollPeriodInSeconds();

@@ -2,7 +2,6 @@ package sokolov.dunkancards.settings.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.CheckBox;
 
 import java.util.List;
 
@@ -29,23 +28,12 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
                        .getSettingsRepository(),
                         new InMemoryLanguageRep(),
                         this);
-
-        ((CheckBox) findViewById(R.id.caption_check_box))
-                .setOnCheckedChangeListener(
-                        new CaptionOnCheckedChangeListener(settingsPresenter));
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         settingsPresenter.onResume();
-    }
-
-    @Override
-    public void updateCaptionState(boolean isChecked) {
-        ((CheckBox) findViewById(R.id.caption_check_box))
-                .setChecked(isChecked);
     }
 
     @Override

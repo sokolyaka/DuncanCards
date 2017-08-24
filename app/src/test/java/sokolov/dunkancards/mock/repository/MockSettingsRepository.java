@@ -10,16 +10,6 @@ public class MockSettingsRepository implements SettingsRepository {
     public MockSettingsRepository(String lang) {this.lang = lang;}
 
     @Override
-    public void saveCaptionState(boolean isChecked) {
-
-    }
-
-    @Override
-    public boolean getCaptionState() {
-        return false;
-    }
-
-    @Override
     public void saveLanguage(String lang) {
 
     }

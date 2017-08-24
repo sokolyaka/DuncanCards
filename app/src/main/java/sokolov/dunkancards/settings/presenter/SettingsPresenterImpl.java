@@ -17,11 +17,6 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     }
 
     @Override
-    public void captionChecked(boolean isChecked) {
-        settingsRepository.saveCaptionState(isChecked);
-    }
-
-    @Override
     public void onCreate() {
         settingsView.initLanguages(
                 languageRepository.getAll());
@@ -30,8 +25,6 @@ public class SettingsPresenterImpl implements SettingsPresenter {
 
     @Override
     public void onResume() {
-        settingsView.updateCaptionState(
-                settingsRepository.getCaptionState());
         settingsView.updateLanguage(
                 settingsRepository.getLanguage());
 
