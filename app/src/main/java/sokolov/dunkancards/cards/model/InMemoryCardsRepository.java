@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sokolov.dunkancards.domain.entity.card.CardModel;
+import sokolov.dunkancards.domain.entity.card.CardModelImpl;
+
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
 public class InMemoryCardsRepository implements CardsRepository {

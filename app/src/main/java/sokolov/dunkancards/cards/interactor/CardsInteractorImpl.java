@@ -3,7 +3,7 @@ package sokolov.dunkancards.cards.interactor;
 import java.util.ArrayList;
 import java.util.List;
 
-import sokolov.dunkancards.cards.model.CardModel;
+import sokolov.dunkancards.domain.entity.card.CardModel;
 import sokolov.dunkancards.cards.model.CardsRepository;
 import sokolov.dunkancards.cards.view.CardDisplayFormModel;
 import sokolov.dunkancards.cards.view.CardDisplayModel;

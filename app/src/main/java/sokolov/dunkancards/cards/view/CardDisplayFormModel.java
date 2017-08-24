@@ -1,6 +1,6 @@
 package sokolov.dunkancards.cards.view;
 
-import sokolov.dunkancards.cards.model.CardModel;
+import sokolov.dunkancards.domain.entity.card.CardModel;
 
 public class CardDisplayFormModel implements CardDisplayModel {
     private final CardModel model;
