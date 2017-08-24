@@ -71,4 +71,10 @@ public class SettingsPresenterImplTest {
         verify(settingsRepository).saveAutoScroll(1);
     }
 
+    @Test
+    public void testSetAutoScrollTimeToView() throws Exception {
+        settingsRepository.saveAutoScroll(1);
+        settingsPresenter.onResume();
+        verify(settingsView).updateAutoScroll(1);
+    }
 }

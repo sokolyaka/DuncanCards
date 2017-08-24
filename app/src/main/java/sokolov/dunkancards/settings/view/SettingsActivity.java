@@ -62,4 +62,9 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     public void turnOffAutoScroll() {
         //// TODO: 24.08.2017
     }
+
+    @Override
+    public void updateAutoScroll(int periodInSeconds) {
+        //// TODO: 24.08.2017
+    }
 }

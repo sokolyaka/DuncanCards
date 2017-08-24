@@ -35,8 +35,11 @@ public class SettingsPresenterImpl implements SettingsPresenter {
         settingsView.updateLanguage(
                 settingsRepository.getLanguage());
 
-        if (settingsRepository.getAutoScrollPeriodInSeconds() < 1) {
+        int autoScrollPeriodInSeconds = settingsRepository.getAutoScrollPeriodInSeconds();
+        if (autoScrollPeriodInSeconds < 1) {
             settingsView.turnOffAutoScroll();
+        } else {
+            settingsView.updateAutoScroll(autoScrollPeriodInSeconds);
         }
     }
 

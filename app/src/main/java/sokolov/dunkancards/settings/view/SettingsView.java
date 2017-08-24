@@ -12,4 +12,6 @@ public interface SettingsView {
     void initLanguages(List<LanguageModel> languageModels);
 
     void turnOffAutoScroll();
+
+    void updateAutoScroll(int periodInSeconds);
 }
