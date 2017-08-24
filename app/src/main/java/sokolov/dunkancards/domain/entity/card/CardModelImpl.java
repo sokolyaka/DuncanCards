@@ -2,7 +2,7 @@ package sokolov.dunkancards.domain.entity.card;
 
 import java.util.Map;
 
-public class CardModelImpl implements CardModel {
+public class CardModelImpl implements Card {
     private final int id;
     private final int categoryId;
     private final String imgPath;

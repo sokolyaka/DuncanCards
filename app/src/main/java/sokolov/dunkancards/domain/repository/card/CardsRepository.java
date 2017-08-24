@@ -2,8 +2,8 @@ package sokolov.dunkancards.domain.repository.card;
 
 import java.util.List;
 
-import sokolov.dunkancards.domain.entity.card.CardModel;
+import sokolov.dunkancards.domain.entity.card.Card;
 
 public interface CardsRepository {
-    List<CardModel> getCardsByCategoryId(int id);
+    List<Card> getCardsByCategoryId(int id);
 }

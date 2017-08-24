@@ -2,7 +2,7 @@ package sokolov.dunkancards.domain.entity.card;
 
 import java.util.Map;
 
-public interface CardModel {
+public interface Card {
     int id();
 
     int categoryId();

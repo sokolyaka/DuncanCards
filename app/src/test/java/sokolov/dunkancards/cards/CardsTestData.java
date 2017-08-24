@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import sokolov.dunkancards.domain.entity.card.CardModel;
+import sokolov.dunkancards.domain.entity.card.Card;
 import sokolov.dunkancards.domain.entity.card.CardModelImpl;
 import sokolov.dunkancards.cards.view.CardDisplayFormModel;
 import sokolov.dunkancards.cards.view.CardDisplayModel;
@@ -81,7 +81,7 @@ public class CardsTestData {
         TITLES.put(9, fireTruck);
     }
 
-    public static final List<? extends CardModel> TRANSPORT_CARD_MODELS;
+    public static final List<? extends Card> TRANSPORT_CARD_MODELS;
 
     static {
         TRANSPORT_CARD_MODELS =
@@ -119,7 +119,7 @@ public class CardsTestData {
     static {
         TRANSPORT_CARD_DISPLAY_MODELS_ENG = new ArrayList<>();
 
-        for (CardModel model : TRANSPORT_CARD_MODELS) {
+        for (Card model : TRANSPORT_CARD_MODELS) {
             TRANSPORT_CARD_DISPLAY_MODELS_ENG.add(new CardDisplayFormModel(model, "en"));
         }
     }

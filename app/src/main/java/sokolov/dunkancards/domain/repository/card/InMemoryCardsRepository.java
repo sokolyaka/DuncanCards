@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import sokolov.dunkancards.domain.entity.card.CardModel;
+import sokolov.dunkancards.domain.entity.card.Card;
 import sokolov.dunkancards.domain.entity.card.CardModelImpl;
 
 import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
@@ -78,7 +78,7 @@ public class InMemoryCardsRepository implements CardsRepository {
         TITLES.put(9, fireTruck);
     }
 
-    private static final List<? extends CardModel> models;
+    private static final List<? extends Card> models;
     static {
         models =
                 Arrays.asList(
@@ -95,9 +95,9 @@ public class InMemoryCardsRepository implements CardsRepository {
     }
 
     @Override
-    public List<CardModel> getCardsByCategoryId(int id) {
-        List<CardModel> result = new ArrayList<>();
-        for (CardModel model : models) {
+    public List<Card> getCardsByCategoryId(int id) {
+        List<Card> result = new ArrayList<>();
+        for (Card model : models) {
             if (model.categoryId() == id) {
                 result.add(model);
             }

@@ -3,7 +3,7 @@ package sokolov.dunkancards.cards.interactor;
 import java.util.ArrayList;
 import java.util.List;
 
-import sokolov.dunkancards.domain.entity.card.CardModel;
+import sokolov.dunkancards.domain.entity.card.Card;
 import sokolov.dunkancards.domain.repository.card.CardsRepository;
 import sokolov.dunkancards.cards.view.CardDisplayFormModel;
 import sokolov.dunkancards.cards.view.CardDisplayModel;
@@ -22,13 +22,13 @@ public class CardsInteractorImpl implements CardsInteractor {
 
     @Override
     public List<CardDisplayModel> loadCards(CategoryDisplayModel category) {
-        List<CardModel> models =
+        List<Card> models =
                 cardsRepository
                         .getCardsByCategoryId(
                                 category.id());
         List<CardDisplayModel> views = new ArrayList<>();
 
-        for (CardModel model : models) {
+        for (Card model : models) {
             views.add(
                     new CardDisplayFormModel(
                             model,
