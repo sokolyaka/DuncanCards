@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import sokolov.dunkancards.domain.entity.card.Card;
-import sokolov.dunkancards.domain.entity.card.CardModelImpl;
+import sokolov.dunkancards.domain.entity.card.CardModel;
 
 import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
 
@@ -82,16 +82,16 @@ public class InMemoryCardsRepository implements CardsRepository {
     static {
         models =
                 Arrays.asList(
-                        new CardModelImpl(0, TRANSPORT_ID, "transport/truck.jpg", TITLES.get(0)),
-                        new CardModelImpl(1, TRANSPORT_ID, "transport/ambulance.jpg", TITLES.get(1)),
-                        new CardModelImpl(2, TRANSPORT_ID, "transport/auto.jpg", TITLES.get(2)),
-                        new CardModelImpl(3, TRANSPORT_ID, "transport/bicycle.jpg", TITLES.get(3)),
-                        new CardModelImpl(4, TRANSPORT_ID, "transport/bus.jpg", TITLES.get(4)),
-                        new CardModelImpl(5, TRANSPORT_ID, "transport/motorcycle.jpg", TITLES.get(5)),
-                        new CardModelImpl(6, TRANSPORT_ID, "transport/police.jpg", TITLES.get(6)),
-                        new CardModelImpl(7, TRANSPORT_ID, "transport/tram.jpg", TITLES.get(7)),
-                        new CardModelImpl(8, TRANSPORT_ID, "transport/trolleybus.jpg", TITLES.get(8)),
-                        new CardModelImpl(9, TRANSPORT_ID, "transport/fire truck.jpg", TITLES.get(9)));
+                        new CardModel(0, TRANSPORT_ID, "transport/truck.jpg", TITLES.get(0)),
+                        new CardModel(1, TRANSPORT_ID, "transport/ambulance.jpg", TITLES.get(1)),
+                        new CardModel(2, TRANSPORT_ID, "transport/auto.jpg", TITLES.get(2)),
+                        new CardModel(3, TRANSPORT_ID, "transport/bicycle.jpg", TITLES.get(3)),
+                        new CardModel(4, TRANSPORT_ID, "transport/bus.jpg", TITLES.get(4)),
+                        new CardModel(5, TRANSPORT_ID, "transport/motorcycle.jpg", TITLES.get(5)),
+                        new CardModel(6, TRANSPORT_ID, "transport/police.jpg", TITLES.get(6)),
+                        new CardModel(7, TRANSPORT_ID, "transport/tram.jpg", TITLES.get(7)),
+                        new CardModel(8, TRANSPORT_ID, "transport/trolleybus.jpg", TITLES.get(8)),
+                        new CardModel(9, TRANSPORT_ID, "transport/fire truck.jpg", TITLES.get(9)));
     }
 
     @Override

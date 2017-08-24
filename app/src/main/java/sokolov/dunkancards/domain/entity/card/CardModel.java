@@ -2,13 +2,13 @@ package sokolov.dunkancards.domain.entity.card;
 
 import java.util.Map;
 
-public class CardModelImpl implements Card {
+public class CardModel implements Card {
     private final int id;
     private final int categoryId;
     private final String imgPath;
     private final Map<String, String> title;
 
-    public CardModelImpl(int id, int categoryId, String imgPath, Map<String, String> title) {
+    public CardModel(int id, int categoryId, String imgPath, Map<String, String> title) {
         this.id = id;
         this.categoryId = categoryId;
         this.imgPath = imgPath;
@@ -40,7 +40,7 @@ public class CardModelImpl implements Card {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CardModelImpl cardModel = (CardModelImpl) o;
+        CardModel cardModel = (CardModel) o;
 
         if (id != cardModel.id) return false;
         if (categoryId != cardModel.categoryId) return false;
