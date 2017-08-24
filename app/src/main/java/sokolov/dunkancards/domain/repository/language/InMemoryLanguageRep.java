@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import sokolov.dunkancards.domain.LanguageModel;
-import sokolov.dunkancards.domain.LanguageModelImpl;
+import sokolov.dunkancards.domain.entity.language.LanguageModel;
+import sokolov.dunkancards.domain.entity.language.LanguageModelImpl;
 
 import static java.util.Arrays.asList;
 

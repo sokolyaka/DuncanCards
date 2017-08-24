@@ -1,4 +1,4 @@
-package sokolov.dunkancards.domain;
+package sokolov.dunkancards.domain.entity.language;
 
 public class LanguageModelImpl implements LanguageModel {
     private final String fullName;
