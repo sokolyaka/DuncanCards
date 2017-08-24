@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sokolov.dunkancards.domain.entity.category.Category;
 import sokolov.dunkancards.domain.entity.category.CategoryModel;
 
-import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.*;
+import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
 
 public class InMemoryCategoriesRepository implements CategoriesRepository {
 
