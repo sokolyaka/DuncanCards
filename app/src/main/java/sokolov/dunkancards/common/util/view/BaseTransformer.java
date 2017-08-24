@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package sokolov.dunkancards.util;
+package sokolov.dunkancards.common.util.view;
 
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.view.View;

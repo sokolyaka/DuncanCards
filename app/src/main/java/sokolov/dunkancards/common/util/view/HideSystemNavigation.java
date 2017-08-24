@@ -1,4 +1,4 @@
-package sokolov.dunkancards.util;
+package sokolov.dunkancards.common.util.view;
 
 import android.view.View;
 
