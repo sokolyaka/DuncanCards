@@ -10,7 +10,7 @@ import sokolov.dunkancards.domain.repository.card.CardsRepository;
 import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
 
 import static sokolov.dunkancards.cards.CardsTestData.TRANSPORT_CARD_MODELS;
-import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
+import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
 
 public class CardsRepositoryTest {
 

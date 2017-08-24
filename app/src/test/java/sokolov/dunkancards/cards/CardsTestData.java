@@ -11,7 +11,7 @@ import sokolov.dunkancards.domain.entity.card.CardModelImpl;
 import sokolov.dunkancards.cards.view.CardDisplayFormModel;
 import sokolov.dunkancards.cards.view.CardDisplayModel;
 
-import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
+import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
 
 public class CardsTestData {
 

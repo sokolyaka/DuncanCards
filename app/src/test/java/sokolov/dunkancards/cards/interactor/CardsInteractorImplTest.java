@@ -10,7 +10,7 @@ import sokolov.dunkancards.mock.repository.MockCardsRepository;
 import sokolov.dunkancards.mock.repository.MockSettingsRepository;
 
 import static sokolov.dunkancards.cards.CardsTestData.TRANSPORT_CARD_DISPLAY_MODELS_ENG;
-import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
+import static sokolov.dunkancards.domain.repository.category.CategoriesConstants.TRANSPORT_ID;
 
 public class CardsInteractorImplTest {
 

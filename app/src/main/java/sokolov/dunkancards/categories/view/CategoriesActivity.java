@@ -20,7 +20,7 @@ import sokolov.dunkancards.R;
 import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
-import sokolov.dunkancards.categories.model.InMemoryCategoriesRepository;
+import sokolov.dunkancards.domain.repository.category.InMemoryCategoriesRepository;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
 import sokolov.dunkancards.settings.view.SettingsActivity;
 
