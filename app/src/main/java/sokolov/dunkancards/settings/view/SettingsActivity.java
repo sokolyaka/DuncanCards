@@ -8,7 +8,7 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.domain.entity.language.LanguageModel;
+import sokolov.dunkancards.domain.entity.language.Language;
 import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
@@ -54,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     }
 
     @Override
-    public void initLanguages(List<LanguageModel> languageModels) {
+    public void initLanguages(List<Language> languageModels) {
         //// TODO: 24.08.2017
     }
 
