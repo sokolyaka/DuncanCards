@@ -1,4 +1,4 @@
-package sokolov.dunkancards.categories.model;
+package sokolov.dunkancards.domain.entity.category;
 
 import java.util.Map;
 

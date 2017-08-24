@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import sokolov.dunkancards.categories.model.CategoriesRepository;
-import sokolov.dunkancards.categories.model.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.CategoryModel;
 
 import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGORY;
 

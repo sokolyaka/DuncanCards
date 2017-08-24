@@ -5,7 +5,7 @@ import java.util.List;
 
 import sokolov.dunkancards.cards.model.CardsRepository;
 import sokolov.dunkancards.categories.model.CategoriesRepository;
-import sokolov.dunkancards.categories.model.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.CategoryModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
 import sokolov.dunkancards.settings.model.SettingsRepository;

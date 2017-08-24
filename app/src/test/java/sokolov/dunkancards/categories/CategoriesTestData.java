@@ -3,8 +3,8 @@ package sokolov.dunkancards.categories;
 import java.util.HashMap;
 import java.util.Map;
 
-import sokolov.dunkancards.categories.model.CategoryModel;
-import sokolov.dunkancards.categories.model.CategoryModelImpl;
+import sokolov.dunkancards.domain.entity.category.CategoryModel;
+import sokolov.dunkancards.domain.entity.category.CategoryModelImpl;
 
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
 
