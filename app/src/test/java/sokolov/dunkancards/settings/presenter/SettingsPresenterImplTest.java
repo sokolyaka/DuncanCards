@@ -12,7 +12,6 @@ import sokolov.dunkancards.domain.repository.language.LanguageRepository;
 import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class SettingsPresenterImplTest {
@@ -36,7 +35,7 @@ public class SettingsPresenterImplTest {
     @Test
     public void testCaptionChecked() {
         settingsPresenter.captionChecked(true);
-        verify(settingsRepository, times(1)).saveCaptionState(true);
+        verify(settingsRepository).saveCaptionState(true);
     }
 
     @Test
@@ -45,10 +44,10 @@ public class SettingsPresenterImplTest {
         settingsPresenter.selectLanguage("en");
 
         settingsPresenter.onResume();
-        verify(settingsRepository, times(1)).getCaptionState();
-        verify(settingsView, times(1)).updateCaptionState(true);
-        verify(settingsRepository, times(1)).getLanguage();
-        verify(settingsView, times(1)).updateLanguage("en");
+        verify(settingsRepository).getCaptionState();
+        verify(settingsView).updateCaptionState(true);
+        verify(settingsRepository).getLanguage();
+        verify(settingsView).updateLanguage("en");
         verify(settingsRepository).getAutoScrollPeriodInSeconds();
         verify(settingsView).turnOffAutoScroll();
     }
@@ -56,7 +55,7 @@ public class SettingsPresenterImplTest {
     @Test
     public void testLanguageSelected() throws Exception {
         settingsPresenter.selectLanguage("en");
-        verify(settingsRepository, times(1)).saveLanguage("en");
+        verify(settingsRepository).saveLanguage("en");
     }
 
     @Test
