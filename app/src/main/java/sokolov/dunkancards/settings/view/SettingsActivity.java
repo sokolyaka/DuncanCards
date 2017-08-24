@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 
+import java.util.List;
+
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.domain.LanguageModelImpl;
 import sokolov.dunkancards.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
 
@@ -44,5 +47,10 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     @Override
     public void updateLanguage(String lang) {
         //// TODO: 23.08.2017
+    }
+
+    @Override
+    public void initLanguages(List<LanguageModelImpl> languageModels) {
+        //// TODO: 24.08.2017
     }
 }

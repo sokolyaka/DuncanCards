@@ -6,6 +6,9 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
+
+import sokolov.dunkancards.domain.LanguageModelImpl;
 import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
@@ -50,6 +53,17 @@ public class SettingsPresenterImplTest {
     public void testLanguageSelected() throws Exception {
         settingsPresenter.selectLanguage("en");
         verify(settingsRepository, times(1)).saveLanguage("en");
+    }
+
+    @Test
+    public void onCreate() throws Exception {
+        settingsPresenter.onCreate();
+        verify(settingsView)
+                .initLanguages(
+                        Arrays.asList(
+                                new LanguageModelImpl("English", "en"),
+                                new LanguageModelImpl("Русский", "ru"),
+                                new LanguageModelImpl("Українська", "ua")));
     }
 
 
