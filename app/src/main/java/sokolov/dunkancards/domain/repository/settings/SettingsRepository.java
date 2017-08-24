@@ -8,4 +8,6 @@ public interface SettingsRepository {
     void saveLanguage(String lang);
 
     String getLanguage();
+
+    int getAutoScrollPeriodInSeconds();
 }

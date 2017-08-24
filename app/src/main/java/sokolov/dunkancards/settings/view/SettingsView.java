@@ -10,4 +10,6 @@ public interface SettingsView {
     void updateLanguage(String lang);
 
     void initLanguages(List<LanguageModel> languageModels);
+
+    void turnOffAutoScroll();
 }

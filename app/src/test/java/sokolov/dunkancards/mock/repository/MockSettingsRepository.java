@@ -28,4 +28,9 @@ public class MockSettingsRepository implements SettingsRepository {
     public String getLanguage() {
         return lang;
     }
+
+    @Override
+    public int getAutoScrollPeriodInSeconds() {
+        return 0;
+    }
 }

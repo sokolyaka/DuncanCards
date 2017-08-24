@@ -49,6 +49,8 @@ public class SettingsPresenterImplTest {
         verify(settingsView, times(1)).updateCaptionState(true);
         verify(settingsRepository, times(1)).getLanguage();
         verify(settingsView, times(1)).updateLanguage("en");
+        verify(settingsRepository).getAutoScrollPeriodInSeconds();
+        verify(settingsView).turnOffAutoScroll();
     }
 
     @Test

@@ -4,6 +4,7 @@ public class InMemorySettingsRepository implements SettingsRepository {
 
     private boolean isCaptionChecked;
     private String lang;
+    private int autoScrollPeriodInSeconds = -1;
 
     @Override
     public void saveCaptionState(boolean isChecked) {
@@ -23,5 +24,10 @@ public class InMemorySettingsRepository implements SettingsRepository {
     @Override
     public String getLanguage() {
         return lang;
+    }
+
+    @Override
+    public int getAutoScrollPeriodInSeconds() {
+        return autoScrollPeriodInSeconds;
     }
 }

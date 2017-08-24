@@ -57,4 +57,9 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     public void initLanguages(List<LanguageModel> languageModels) {
         //// TODO: 24.08.2017
     }
+
+    @Override
+    public void turnOffAutoScroll() {
+        //// TODO: 24.08.2017
+    }
 }
