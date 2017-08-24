@@ -1,7 +1,7 @@
 package sokolov.dunkancards.settings.presenter;
 
 import sokolov.dunkancards.domain.repository.language.LanguageRepository;
-import sokolov.dunkancards.settings.model.SettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 public class SettingsPresenterImpl implements SettingsPresenter {

@@ -1,4 +1,4 @@
-package sokolov.dunkancards.settings.model;
+package sokolov.dunkancards.domain.repository.settings;
 
 public interface SettingsRepository {
     void saveCaptionState(boolean isChecked);

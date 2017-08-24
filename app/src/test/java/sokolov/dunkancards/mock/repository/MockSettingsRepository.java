@@ -1,6 +1,6 @@
 package sokolov.dunkancards.mock.repository;
 
-import sokolov.dunkancards.settings.model.SettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
 
 
 public class MockSettingsRepository implements SettingsRepository {

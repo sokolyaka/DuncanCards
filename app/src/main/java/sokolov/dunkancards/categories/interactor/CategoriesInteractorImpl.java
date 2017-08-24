@@ -8,7 +8,7 @@ import sokolov.dunkancards.domain.repository.category.CategoriesRepository;
 import sokolov.dunkancards.domain.entity.category.Category;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
-import sokolov.dunkancards.settings.model.SettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
 
 public class CategoriesInteractorImpl implements CategoriesInteractor {
 

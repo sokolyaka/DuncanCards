@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 
 import sokolov.dunkancards.domain.repository.language.LanguageRepository;
-import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 import static org.mockito.Mockito.times;
