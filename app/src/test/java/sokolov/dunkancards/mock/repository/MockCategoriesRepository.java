@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.mock.repository;
 
 import java.util.Collections;
 import java.util.List;

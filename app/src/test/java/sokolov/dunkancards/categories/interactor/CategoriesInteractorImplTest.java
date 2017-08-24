@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
-import sokolov.dunkancards.repository.MockCardsRepository;
-import sokolov.dunkancards.repository.MockCategoriesRepository;
-import sokolov.dunkancards.repository.MockSettingsRepository;
+import sokolov.dunkancards.mock.repository.MockCardsRepository;
+import sokolov.dunkancards.mock.repository.MockCategoriesRepository;
+import sokolov.dunkancards.mock.repository.MockSettingsRepository;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;

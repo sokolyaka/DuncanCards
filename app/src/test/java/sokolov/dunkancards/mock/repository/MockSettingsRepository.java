@@ -1,4 +1,4 @@
-package sokolov.dunkancards.repository;
+package sokolov.dunkancards.mock.repository;
 
 import sokolov.dunkancards.settings.model.SettingsRepository;
 

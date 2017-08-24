@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
 import sokolov.dunkancards.categories.mock.MockIdCategoryDisplay;
-import sokolov.dunkancards.repository.MockCardsRepository;
-import sokolov.dunkancards.repository.MockSettingsRepository;
+import sokolov.dunkancards.mock.repository.MockCardsRepository;
+import sokolov.dunkancards.mock.repository.MockSettingsRepository;
 
 import static sokolov.dunkancards.cards.CardsTestData.TRANSPORT_CARD_DISPLAY_MODELS_ENG;
 import static sokolov.dunkancards.categories.model.CategoriesConstants.TRANSPORT_ID;
