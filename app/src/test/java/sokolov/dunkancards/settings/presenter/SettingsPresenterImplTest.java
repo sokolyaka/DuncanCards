@@ -50,6 +50,19 @@ public class SettingsPresenterImplTest {
     }
 
     @Test
+    public void testOnResumeAutoScroll() throws Exception {
+        settingsRepository.saveAutoScroll(0);
+
+        settingsPresenter.onResume();
+        verify(settingsView).turnOffAutoScroll();
+
+        settingsPresenter.onAutoScrollSelected(5);
+        settingsPresenter.onResume();
+        verify(settingsView).updateAutoScroll(5);
+    }
+
+
+    @Test
     public void testLanguageSelected() throws Exception {
         settingsPresenter.selectLanguage(new MockLanguageDisplayModel("en"));
         verify(settingsRepository).saveCurrentLanguage("en");
