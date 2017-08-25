@@ -6,11 +6,10 @@ import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Collections;
-
 import sokolov.dunkancards.domain.entity.language.LanguageModel;
 import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
+import sokolov.dunkancards.mock.data.LanguageTestData;
 import sokolov.dunkancards.settings.repository.FlagRepository;
 import sokolov.dunkancards.settings.view.LanguageDisplayModelFromModel;
 import sokolov.dunkancards.settings.view.MockLanguageDisplayModel;
@@ -72,7 +71,7 @@ public class SettingsPresenterImplTest {
     public void onCreate() throws Exception {
         settingsPresenter.onCreate();
         verify(languageRepository).getAll();
-        verify(settingsView).initLanguages(Collections.EMPTY_LIST);
+        verify(settingsView).initLanguages(LanguageTestData.LANGUAGE_DISPLAY_MODELS);
     }
 
     @Test
