@@ -2,13 +2,11 @@ package sokolov.dunkancards.settings.view;
 
 import java.util.List;
 
-import sokolov.dunkancards.domain.entity.language.Language;
-
 public interface SettingsView {
 
-    void updateLanguage(String lang);
+    void updateLanguage(LanguageDisplayModel lang);
 
-    void initLanguages(List<Language> languageModels);
+    void initLanguages(List<LanguageDisplayModel> languageModels);
 
     void turnOffAutoScroll();
 

@@ -10,12 +10,12 @@ public class MockSettingsRepository implements SettingsRepository {
     public MockSettingsRepository(String lang) {this.lang = lang;}
 
     @Override
-    public void saveLanguage(String lang) {
+    public void saveCurrentLanguage(String shortName) {
 
     }
 
     @Override
-    public String getLanguage() {
+    public String getCurrentLanguage() {
         return lang;
     }
 

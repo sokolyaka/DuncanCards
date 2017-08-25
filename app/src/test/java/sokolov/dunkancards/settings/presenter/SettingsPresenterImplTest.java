@@ -8,8 +8,12 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Collections;
 
-import sokolov.dunkancards.domain.repository.language.LanguageRepository;
+import sokolov.dunkancards.domain.entity.language.LanguageModel;
+import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
+import sokolov.dunkancards.settings.repository.FlagRepository;
+import sokolov.dunkancards.settings.view.LanguageDisplayModelFromModel;
+import sokolov.dunkancards.settings.view.MockLanguageDisplayModel;
 import sokolov.dunkancards.settings.view.SettingsView;
 
 import static org.mockito.Mockito.verify;
@@ -23,30 +27,29 @@ public class SettingsPresenterImplTest {
 
     @Mock
     private SettingsView settingsView;
+    @Mock(answer = Answers.CALLS_REAL_METHODS)
+    private InMemoryLanguageRep languageRepository;
     @Mock
-    private LanguageRepository languageRepository;
+    private FlagRepository flagRepository;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        settingsPresenter = new SettingsPresenterImpl(settingsRepository, languageRepository, settingsView);
+        settingsPresenter = new SettingsPresenterImpl(settingsRepository, languageRepository, settingsView, flagRepository);
     }
 
     @Test
-    public void testOnResume() {
-        settingsPresenter.selectLanguage("en");
+    public void testOnResumeLanguage() {
+        settingsRepository.saveCurrentLanguage("en");
 
         settingsPresenter.onResume();
-        verify(settingsRepository).getLanguage();
-        verify(settingsView).updateLanguage("en");
-        verify(settingsRepository).getAutoScrollPeriodInSeconds();
-        verify(settingsView).turnOffAutoScroll();
+        verify(settingsView).updateLanguage(new LanguageDisplayModelFromModel(new LanguageModel("English", "en"), null));
     }
 
     @Test
     public void testLanguageSelected() throws Exception {
-        settingsPresenter.selectLanguage("en");
-        verify(settingsRepository).saveLanguage("en");
+        settingsPresenter.selectLanguage(new MockLanguageDisplayModel("en"));
+        verify(settingsRepository).saveCurrentLanguage("en");
     }
 
     @Test

@@ -23,4 +23,14 @@ public class InMemoryLanguageRep implements LanguageRepository {
         return copy;
     }
 
+    @Override
+    public Language getByShortName(String shortName) {
+        for (Language model : LANGUAGE_MODELS) {
+            if (model.shortName().equals(shortName)) {
+                return model;
+            }
+        }
+        return null;
+    }
+
 }

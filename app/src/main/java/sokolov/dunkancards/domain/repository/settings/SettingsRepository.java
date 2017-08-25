@@ -2,9 +2,9 @@ package sokolov.dunkancards.domain.repository.settings;
 
 public interface SettingsRepository {
 
-    void saveLanguage(String lang);
+    void saveCurrentLanguage(String shortName);
 
-    String getLanguage();
+    String getCurrentLanguage();
 
     int getAutoScrollPeriodInSeconds();
 

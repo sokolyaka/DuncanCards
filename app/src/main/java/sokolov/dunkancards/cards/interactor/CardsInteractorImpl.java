@@ -32,7 +32,7 @@ public class CardsInteractorImpl implements CardsInteractor {
             views.add(
                     new CardDisplayFormModel(
                             model,
-                            settingsRepository.getLanguage()));
+                            settingsRepository.getCurrentLanguage()));
         }
 
         return views;

@@ -34,7 +34,7 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
                                     .getCardsByCategoryId(
                                             model.id())
                                     .size(),
-                            settingsRepository.getLanguage()));
+                            settingsRepository.getCurrentLanguage()));
         }
         return viewModels;
     }

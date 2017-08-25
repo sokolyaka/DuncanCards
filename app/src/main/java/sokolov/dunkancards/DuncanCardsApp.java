@@ -16,8 +16,8 @@ public class DuncanCardsApp extends Application {
         super.onCreate();
         settingsRepository = new InMemorySettingsRepository();
 
-        if (settingsRepository.getLanguage() == null) {
-            settingsRepository.saveLanguage(Locale.getDefault().getLanguage());
+        if (settingsRepository.getCurrentLanguage() == null) {
+            settingsRepository.saveCurrentLanguage(Locale.getDefault().getLanguage());
         }
     }
 

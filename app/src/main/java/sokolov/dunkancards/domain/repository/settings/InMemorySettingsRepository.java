@@ -6,12 +6,12 @@ public class InMemorySettingsRepository implements SettingsRepository {
     private int autoScrollPeriodInSeconds = -1;
 
     @Override
-    public void saveLanguage(String lang) {
-        this.lang = lang;
+    public void saveCurrentLanguage(String shortName) {
+        this.lang = shortName;
     }
 
     @Override
-    public String getLanguage() {
+    public String getCurrentLanguage() {
         return lang;
     }
 
