@@ -1,7 +1,6 @@
 package sokolov.dunkancards.domain.repository.language;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import sokolov.dunkancards.domain.entity.language.Language;
@@ -18,9 +17,7 @@ public class InMemoryLanguageRep implements LanguageRepository {
 
     @Override
     public List<Language> getAll() {
-        List<Language> copy = new ArrayList<>();
-        Collections.copy(copy, LANGUAGE_MODELS);
-        return copy;
+        return new ArrayList<>(LANGUAGE_MODELS);
     }
 
     @Override
