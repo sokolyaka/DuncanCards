@@ -43,7 +43,10 @@ public class SettingsPresenterImplTest {
         settingsRepository.saveCurrentLanguage("en");
 
         settingsPresenter.onResume();
-        verify(settingsView).updateLanguage(new LanguageDisplayModelFromModel(new LanguageModel("English", "en"), null));
+        verify(settingsView)
+                .updateLanguage(
+                        new LanguageDisplayModelFromModel(
+                                new LanguageModel("English", "en"), null));
     }
 
     @Test
