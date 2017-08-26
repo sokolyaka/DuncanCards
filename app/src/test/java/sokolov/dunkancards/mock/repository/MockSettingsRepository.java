@@ -11,7 +11,7 @@ public class MockSettingsRepository implements SettingsRepository {
 
     @Override
     public void saveCurrentLanguage(String shortName) {
-
+        lang = shortName;
     }
 
     @Override
