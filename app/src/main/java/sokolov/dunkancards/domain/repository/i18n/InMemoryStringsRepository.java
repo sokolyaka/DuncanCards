@@ -10,7 +10,7 @@ public class InMemoryStringsRepository implements StringsRepository {
     static {
         CATEGORIES_TITLE = new HashMap<>();
         CATEGORIES_TITLE.put("en", "Doman's cards");
-        CATEGORIES_TITLE.put("ua", "Картки Домана");
+        CATEGORIES_TITLE.put("uk", "Картки Домана");
         CATEGORIES_TITLE.put("ru", "Карточки Домна");
     }
 

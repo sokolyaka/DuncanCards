@@ -10,7 +10,7 @@ public class InMemoryFlagRepository implements FlagRepository {
     static {
         PATHS = new HashMap<>();
         PATHS.put("en", "flags/en.png");
-        PATHS.put("ua", "flags/ua.png");
+        PATHS.put("uk", "flags/ua.png");
         PATHS.put("ru", "flags/ru.png");
     }
 

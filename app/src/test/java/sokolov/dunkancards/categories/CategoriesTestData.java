@@ -15,7 +15,7 @@ public class CategoriesTestData {
     static {
         Map<String, String> transport = new HashMap<>();
         transport.put("en", "transport");
-        transport.put("ua", "Транспорт");
+        transport.put("uk", "Транспорт");
         transport.put("ru", "Транспорт");
         TRANSPORT_CATEGORY =
                 new CategoryModel(

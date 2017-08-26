@@ -22,61 +22,61 @@ public class CardsTestData {
 
         Map<String, String> truck = new HashMap<>();
         truck.put("en", "Truck");
-        truck.put("ua", "вантажівка");
+        truck.put("uk", "вантажівка");
         truck.put("ru", "грузовик");
         TITLES.put(0, truck);
 
         Map<String, String> ambulance = new HashMap<>();
         ambulance.put("en", "Ambulance");
-        ambulance.put("ua", "Швидка допомога");
+        ambulance.put("uk", "Швидка допомога");
         ambulance.put("ru", "скорая помощь");
         TITLES.put(1, ambulance);
 
         Map<String, String> car = new HashMap<>();
         car.put("en", "Car");
-        car.put("ua", "Машина");
+        car.put("uk", "Машина");
         car.put("ru", "автомобиль");
         TITLES.put(2, car);
 
         Map<String, String> bicycle = new HashMap<>();
         bicycle.put("en", "Bicycle");
-        bicycle.put("ua", "Велосипед");
+        bicycle.put("uk", "Велосипед");
         bicycle.put("ru", "Велосипед");
         TITLES.put(3, bicycle);
 
         Map<String, String> bus = new HashMap<>();
         bus.put("en", "Bus");
-        bus.put("ua", "Автобус");
+        bus.put("uk", "Автобус");
         bus.put("ru", "Автобус");
         TITLES.put(4, bus);
 
         Map<String, String> motorcycle = new HashMap<>();
         motorcycle.put("en", "Motorcycle");
-        motorcycle.put("ua", "Мотоцикл");
+        motorcycle.put("uk", "Мотоцикл");
         motorcycle.put("ru", "Мотоцикл");
         TITLES.put(5, motorcycle);
 
         Map<String, String> police = new HashMap<>();
         police.put("en", "Police");
-        police.put("ua", "Поліція");
+        police.put("uk", "Поліція");
         police.put("ru", "Полиция");
         TITLES.put(6, police);
 
         Map<String, String> train = new HashMap<>();
         train.put("en", "Train");
-        train.put("ua", "Потяг");
+        train.put("uk", "Потяг");
         train.put("ru", "Поезд");
         TITLES.put(7, train);
 
         Map<String, String> trolleybus = new HashMap<>();
         trolleybus.put("en", "Trolleybus");
-        trolleybus.put("ua", "Тролейбус");
+        trolleybus.put("uk", "Тролейбус");
         trolleybus.put("ru", "троллейбус");
         TITLES.put(8, trolleybus);
 
         Map<String, String> fireTruck = new HashMap<>();
         fireTruck.put("en", "Fire truck");
-        fireTruck.put("ua", "Пожежна машина");
+        fireTruck.put("uk", "Пожежна машина");
         fireTruck.put("ru", "Пожарная машина");
         TITLES.put(9, fireTruck);
     }
