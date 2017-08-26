@@ -10,7 +10,6 @@ import sokolov.dunkancards.cards.interactor.CardsInteractor;
 import sokolov.dunkancards.cards.view.CardsView;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class CardsPresenterImplTest {
@@ -32,8 +31,8 @@ public class CardsPresenterImplTest {
     @Test
     public void testOnCreate() {
         cardsPresenter.onCreate(categoryDisplayModel);
-        verify(cardsInteractor, times(1)).loadCards(categoryDisplayModel);
-        verify(cardsView, times(1)).showCards(cardsInteractor.loadCards(categoryDisplayModel));
+        verify(cardsInteractor).loadCards(categoryDisplayModel);
+        verify(cardsView).showCards(cardsInteractor.loadCards(categoryDisplayModel));
     }
 
 }

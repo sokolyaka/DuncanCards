@@ -1,7 +1,14 @@
 package sokolov.dunkancards.settings.view;
 
-public interface SettingsView {
-    void updateCaptionState(boolean isChecked);
+import java.util.List;
 
-    void updateLanguage(String lang);
+public interface SettingsView {
+
+    void updateLanguage(LanguageDisplayModel lang);
+
+    void initLanguages(List<LanguageDisplayModel> languageModels);
+
+    void turnOffAutoScroll();
+
+    void updateAutoScroll(int periodInSeconds);
 }

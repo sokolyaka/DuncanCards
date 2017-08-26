@@ -4,8 +4,8 @@ import android.app.Application;
 
 import java.util.Locale;
 
-import sokolov.dunkancards.settings.model.InMemorySettingsRepository;
-import sokolov.dunkancards.settings.model.SettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
+import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
 
 public class DuncanCardsApp extends Application {
 
@@ -16,8 +16,8 @@ public class DuncanCardsApp extends Application {
         super.onCreate();
         settingsRepository = new InMemorySettingsRepository();
 
-        if (settingsRepository.getLanguage() == null) {
-            settingsRepository.saveLanguage(Locale.getDefault().getLanguage());
+        if (settingsRepository.getCurrentLanguage() == null) {
+            settingsRepository.saveCurrentLanguage(Locale.getDefault().getLanguage());
         }
     }
 

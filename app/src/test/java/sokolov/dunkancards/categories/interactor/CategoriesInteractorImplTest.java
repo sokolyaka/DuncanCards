@@ -4,9 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
-import sokolov.dunkancards.repository.MockCardsRepository;
-import sokolov.dunkancards.repository.MockCategoriesRepository;
-import sokolov.dunkancards.repository.MockSettingsRepository;
+import sokolov.dunkancards.domain.repository.i18n.InMemoryStringsRepository;
+import sokolov.dunkancards.mock.repository.MockCardsRepository;
+import sokolov.dunkancards.mock.repository.MockCategoriesRepository;
+import sokolov.dunkancards.mock.repository.MockSettingsRepository;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
@@ -15,14 +16,17 @@ import static sokolov.dunkancards.categories.CategoriesTestData.TRANSPORT_CATEGO
 public class CategoriesInteractorImplTest {
 
     private CategoriesInteractor categoriesInteractor;
+    private MockSettingsRepository settingsRepository;
 
     @Before
     public void setUp() {
+        settingsRepository = new MockSettingsRepository("en");
         categoriesInteractor =
                 new CategoriesInteractorImpl(
                         new MockCategoriesRepository(),
                         new MockCardsRepository(),
-                        new MockSettingsRepository("en"));
+                        settingsRepository,
+                        new InMemoryStringsRepository());
     }
 
     @Test
@@ -36,4 +40,13 @@ public class CategoriesInteractorImplTest {
                 categoriesInteractor
                         .loadCategories());
     }
+
+    @Test
+    public void getTitle() throws Exception {
+        settingsRepository.saveCurrentLanguage("ua");
+        assertEquals(
+                "Картки Домана",
+                categoriesInteractor.getTitle());
+    }
+
 }

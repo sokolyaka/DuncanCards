@@ -3,30 +3,33 @@ package sokolov.dunkancards.categories.interactor;
 import java.util.ArrayList;
 import java.util.List;
 
-import sokolov.dunkancards.cards.model.CardsRepository;
-import sokolov.dunkancards.categories.model.CategoriesRepository;
-import sokolov.dunkancards.categories.model.CategoryModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.categories.view.CategoryDisplayModelFromDataModel;
-import sokolov.dunkancards.settings.model.SettingsRepository;
+import sokolov.dunkancards.domain.entity.category.Category;
+import sokolov.dunkancards.domain.repository.i18n.StringsRepository;
+import sokolov.dunkancards.domain.repository.card.CardsRepository;
+import sokolov.dunkancards.domain.repository.category.CategoriesRepository;
+import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
 
 public class CategoriesInteractorImpl implements CategoriesInteractor {
 
     private final CategoriesRepository categoryRepository;
     private final CardsRepository cardsRepository;
     private final SettingsRepository settingsRepository;
+    private final StringsRepository stringsRepository;
 
-    public CategoriesInteractorImpl(CategoriesRepository categoryRepository, CardsRepository cardsRepository, SettingsRepository settingsRepository) {
+    public CategoriesInteractorImpl(CategoriesRepository categoryRepository, CardsRepository cardsRepository, SettingsRepository settingsRepository, StringsRepository stringsRepository) {
         this.categoryRepository = categoryRepository;
         this.cardsRepository = cardsRepository;
         this.settingsRepository = settingsRepository;
+        this.stringsRepository = stringsRepository;
     }
 
     @Override
     public List<CategoryDisplayModel> loadCategories() {
-        List<CategoryModel> dataModels = categoryRepository.getAllCategories();
+        List<Category> dataModels = categoryRepository.getAllCategories();
         List<CategoryDisplayModel> viewModels = new ArrayList<>();
-        for (CategoryModel model : dataModels) {
+        for (Category model : dataModels) {
             viewModels.add(
                     new CategoryDisplayModelFromDataModel(
                             model,
@@ -34,8 +37,15 @@ public class CategoriesInteractorImpl implements CategoriesInteractor {
                                     .getCardsByCategoryId(
                                             model.id())
                                     .size(),
-                            settingsRepository.getLanguage()));
+                            settingsRepository.getCurrentLanguage()));
         }
         return viewModels;
+    }
+
+    @Override
+    public String getTitle() {
+        return
+                stringsRepository.getCategoriesTitle(
+                        settingsRepository.getCurrentLanguage());
     }
 }

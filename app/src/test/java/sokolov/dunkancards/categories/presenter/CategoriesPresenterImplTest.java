@@ -12,7 +12,6 @@ import sokolov.dunkancards.categories.interactor.CategoriesInteractor;
 import sokolov.dunkancards.categories.view.CategoriesView;
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class CategoriesPresenterImplTest {
@@ -36,15 +35,19 @@ public class CategoriesPresenterImplTest {
     @Test
     public void testOnViewShow() {
         categoriesPresenter.onViewShow();
-        verify(categoriesInteractor, times(1))
+        verify(categoriesInteractor)
                 .loadCategories();
-        verify(categoriesView, times(1))
+        verify(categoriesView)
                 .setCategories(new ArrayList<CategoryDisplayModel>());
+        verify(categoriesInteractor)
+                .getTitle();
+        verify(categoriesView)
+                .updateTitle("Doman's cards");
     }
 
     @Test
     public void testOnCategorySelected() {
         categoriesPresenter.onCategorySelected(categoryDisplayModel);
-        verify(categoriesView, times(1)).launchCategoryView(categoryDisplayModel);
+        verify(categoriesView).launchCategoryView(categoryDisplayModel);
     }
 }

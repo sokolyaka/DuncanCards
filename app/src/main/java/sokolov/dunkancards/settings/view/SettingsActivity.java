@@ -2,12 +2,15 @@ package sokolov.dunkancards.settings.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.CheckBox;
+
+import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
+import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
+import sokolov.dunkancards.settings.repository.InMemoryFlagRepository;
 
 public class SettingsActivity extends AppCompatActivity implements SettingsView {
 
@@ -19,14 +22,13 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
         setContentView(R.layout.activity_settings);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        settingsPresenter = new SettingsPresenterImpl(
+        settingsPresenter =
+                new SettingsPresenterImpl(
                ((DuncanCardsApp) getApplication())
-                       .getSettingsRepository(), this);
-
-        ((CheckBox) findViewById(R.id.caption_check_box))
-                .setOnCheckedChangeListener(
-                        new CaptionOnCheckedChangeListener(settingsPresenter));
-
+                       .getSettingsRepository(),
+                        new InMemoryLanguageRep(),
+                        this,
+                        new InMemoryFlagRepository());
     }
 
     @Override
@@ -36,13 +38,22 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     }
 
     @Override
-    public void updateCaptionState(boolean isChecked) {
-        ((CheckBox) findViewById(R.id.caption_check_box))
-                .setChecked(isChecked);
+    public void updateLanguage(LanguageDisplayModel lang) {
+        //// TODO: 23.08.2017
     }
 
     @Override
-    public void updateLanguage(String lang) {
-        //// TODO: 23.08.2017
+    public void initLanguages(List<LanguageDisplayModel> languageModels) {
+        //// TODO: 24.08.2017
+    }
+
+    @Override
+    public void turnOffAutoScroll() {
+        //// TODO: 24.08.2017
+    }
+
+    @Override
+    public void updateAutoScroll(int periodInSeconds) {
+        //// TODO: 24.08.2017
     }
 }

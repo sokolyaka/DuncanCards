@@ -18,6 +18,9 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
     public void onViewShow() {
         categoriesView.setCategories(
                 categoriesInteractor.loadCategories());
+        categoriesView.updateTitle(
+                categoriesInteractor.getTitle());
+
     }
 
     @Override
