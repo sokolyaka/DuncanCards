@@ -18,7 +18,8 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
     public void onViewShow() {
         categoriesView.setCategories(
                 categoriesInteractor.loadCategories());
-        categoriesView.updateTitle("Doman's cards");
+        categoriesView.updateTitle(
+                categoriesInteractor.getTitle());
 
     }
 
