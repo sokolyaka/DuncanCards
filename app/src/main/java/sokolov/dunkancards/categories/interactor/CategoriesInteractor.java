@@ -8,4 +8,5 @@ public interface CategoriesInteractor {
 
     List<CategoryDisplayModel> loadCategories();
 
+    String getTitle();
 }

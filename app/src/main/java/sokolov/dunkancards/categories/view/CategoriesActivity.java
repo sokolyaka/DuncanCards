@@ -24,6 +24,7 @@ import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenter;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
+import sokolov.dunkancards.domain.repository.i18n.InMemoryStringsRepository;
 import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.domain.repository.category.InMemoryCategoriesRepository;
 import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
@@ -59,7 +60,8 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
                         new CategoriesInteractorImpl(
                                 new InMemoryCategoriesRepository(),
                                 new InMemoryCardsRepository(),
-                                ((DuncanCardsApp) getApplication()).getSettingsRepository()));
+                                ((DuncanCardsApp) getApplication()).getSettingsRepository(),
+                                new InMemoryStringsRepository()));
 
         mAdapter =
                 new InitCategoriesRecyclerView(
