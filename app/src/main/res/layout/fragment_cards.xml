@@ -1,27 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white"
-                tools:context="sokolov.dunkancards.cards.view.CardFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              tools:context="sokolov.dunkancards.cards.view.CardFragment">
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/stub_card_img"
-        android:layout_centerInParent="true"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/stub_card_img"/>
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
         android:text="TRACTOR"
+        android:gravity="center_horizontal"
         android:textColor="@color/colorAccent"
         android:textSize="48sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="69dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:textStyle="bold"/>
 
-</RelativeLayout>
+</LinearLayout>
