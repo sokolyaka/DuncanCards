@@ -2,8 +2,6 @@ package sokolov.dunkancards.categories.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,24 +10,37 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 
+import com.mingle.entity.MenuEntity;
+import com.mingle.sweetpick.SweetSheet;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.cards.view.CardsActivity;
 import sokolov.dunkancards.categories.interactor.CategoriesInteractorImpl;
-import sokolov.dunkancards.domain.repository.category.InMemoryCategoriesRepository;
+import sokolov.dunkancards.categories.presenter.CategoriesPresenter;
 import sokolov.dunkancards.categories.presenter.CategoriesPresenterImpl;
-import sokolov.dunkancards.settings.view.SettingsActivity;
+import sokolov.dunkancards.domain.repository.card.InMemoryCardsRepository;
+import sokolov.dunkancards.domain.repository.category.InMemoryCategoriesRepository;
+import sokolov.dunkancards.domain.repository.language.InMemoryLanguageRep;
+import sokolov.dunkancards.settings.presenter.SettingsPresenter;
+import sokolov.dunkancards.settings.presenter.SettingsPresenterImpl;
+import sokolov.dunkancards.settings.repository.InMemoryFlagRepository;
+import sokolov.dunkancards.settings.view.LanguageDisplayModel;
+import sokolov.dunkancards.settings.view.SettingsView;
 
-public class CategoriesActivity extends AppCompatActivity implements CategoriesView {
+public class CategoriesActivity extends AppCompatActivity implements CategoriesView, SettingsView {
 
     public static final String CATEGORY_DISPLAY_MODEL = "CATEGORY_DISPLAY_MODEL";
 
-    private CategoriesPresenterImpl presenter;
+    private CategoriesPresenter categoriesPresenter;
     private CategoriesAdapter mAdapter;
+    private SweetSheet sweetSheet;
+    private SettingsPresenter settingsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +52,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        presenter =
+        categoriesPresenter =
                 new CategoriesPresenterImpl(
                         this,
                         new CategoriesInteractorImpl(
@@ -57,26 +68,26 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
 
                             @Override
                             public void onItemClick(CategoryDisplayModel item) {
-                                presenter.onCategorySelected(item);
+                                categoriesPresenter.onCategorySelected(item);
                             }
                         })
                         .execute();
+
+        settingsPresenter =
+                new SettingsPresenterImpl(
+                        ((DuncanCardsApp) getApplication()).getSettingsRepository(),
+                        new InMemoryLanguageRep(),
+                        this,
+                        new InMemoryFlagRepository());
+
+        settingsPresenter.onCreate();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onViewShow();
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        categoriesPresenter.onViewShow();
+        settingsPresenter.onResume();
     }
 
     @Override
@@ -102,10 +113,55 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                if (sweetSheet != null && !sweetSheet.isShow()) {
+                    sweetSheet.show();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void updateLanguage(LanguageDisplayModel lang) {
+        // TODO: 26.08.2017
+    }
+
+    @Override
+    public void initLanguages(List<LanguageDisplayModel> languageModels) {
+        List<MenuEntity> entities = new ArrayList<>();
+        for (LanguageDisplayModel model : languageModels) {
+            entities.add(
+                    new LanguageMenuEntityDisplayModelBridge(model, getAssets())
+                            .fill());
+        }
+
+        sweetSheet =
+                new SettingsSweetSheetInit(
+                        (RelativeLayout) findViewById(R.id.content_categories),
+                        new SweetSheet.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onItemClick(int position, MenuEntity menuEntity) {
+                                settingsPresenter
+                                        .selectLanguage(
+                                                ((LanguageMenuEntityDisplayModelBridge) menuEntity)
+                                                        .getDisplayModel());
+                                categoriesPresenter.onViewShow();
+                                return true;
+                            }
+                        },
+                        entities)
+                        .execute();
+
+    }
+
+    @Override
+    public void turnOffAutoScroll() {
+        //// TODO: 26.08.2017
+    }
+
+    @Override
+    public void updateAutoScroll(int periodInSeconds) {
+        //// TODO: 26.08.2017
     }
 }
