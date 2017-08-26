@@ -2,7 +2,7 @@ package sokolov.dunkancards.categories.presenter;
 
 import sokolov.dunkancards.categories.view.CategoryDisplayModel;
 
-interface CategoriesPresenter {
+public interface CategoriesPresenter {
 
     void onViewShow();
 
