@@ -172,4 +172,13 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     public void updateAutoScroll(int periodInSeconds) {
         //// TODO: 26.08.2017
     }
+
+    @Override
+    public void onBackPressed() {
+        if (sweetSheet != null && sweetSheet.isShow()) {
+            sweetSheet.dismiss();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
