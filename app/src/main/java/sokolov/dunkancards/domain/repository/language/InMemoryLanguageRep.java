@@ -13,7 +13,7 @@ public class InMemoryLanguageRep implements LanguageRepository {
             ((List) asList(
                     new LanguageModel("English", "en"),
                     new LanguageModel("Русский", "ru"),
-                    new LanguageModel("Українська", "ua")));
+                    new LanguageModel("Українська", "uk")));
 
     @Override
     public List<Language> getAll() {

@@ -43,7 +43,7 @@ public class CategoriesInteractorImplTest {
 
     @Test
     public void getTitle() throws Exception {
-        settingsRepository.saveCurrentLanguage("ua");
+        settingsRepository.saveCurrentLanguage("uk");
         assertEquals(
                 "Картки Домана",
                 categoriesInteractor.getTitle());

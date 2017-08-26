@@ -16,7 +16,7 @@ public class LanguageTestData {
             ((List) asList(
                     new LanguageModel("English", "en"),
                     new LanguageModel("Русский", "ru"),
-                    new LanguageModel("Українська", "ua")));
+                    new LanguageModel("Українська", "uk")));
 
     public static final List<LanguageDisplayModel> LANGUAGE_DISPLAY_MODELS;
     static {

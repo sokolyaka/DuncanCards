@@ -18,7 +18,7 @@ public class InMemoryCategoriesRepository implements CategoriesRepository {
 
         Map<String, String> transport = new HashMap<>();
         transport.put("en", "transport");
-        transport.put("ua", "Транспорт");
+        transport.put("uk", "Транспорт");
         transport.put("ru", "Транспорт");
         titles.put(TRANSPORT_ID, transport);
 
