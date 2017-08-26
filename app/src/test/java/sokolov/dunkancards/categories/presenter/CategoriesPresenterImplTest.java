@@ -39,6 +39,8 @@ public class CategoriesPresenterImplTest {
                 .loadCategories();
         verify(categoriesView)
                 .setCategories(new ArrayList<CategoryDisplayModel>());
+        verify(categoriesView)
+                .updateTitle("Doman's cards");
     }
 
     @Test

@@ -41,13 +41,14 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     private CategoriesAdapter mAdapter;
     private SweetSheet sweetSheet;
     private SettingsPresenter settingsPresenter;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.app_bar_categories);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -100,6 +101,11 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
         Intent intent = new Intent(this, CardsActivity.class);
         intent.putExtra(CATEGORY_DISPLAY_MODEL, new SerializableCategoryDisplayModel(item));
         startActivity(intent);
+    }
+
+    @Override
+    public void updateTitle(String title) {
+        toolbar.setTitle(title);
     }
 
     @Override

@@ -7,4 +7,6 @@ public interface CategoriesView {
     void setCategories(List<CategoryDisplayModel> categories);
 
     void launchCategoryView(CategoryDisplayModel item);
+
+    void updateTitle(String title);
 }
