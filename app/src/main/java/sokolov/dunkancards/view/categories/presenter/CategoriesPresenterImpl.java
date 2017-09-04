@@ -1,25 +1,59 @@
 package sokolov.dunkancards.view.categories.presenter;
 
-import sokolov.dunkancards.domain.usecase.categories.CategoriesInteractor;
+import java.util.List;
+
+import sokolov.dunkancards.domain.entity.category.Category;
+import sokolov.dunkancards.domain.usecase.categories.LoadCategoriesUseCase;
+import sokolov.dunkancards.view.categories.presenter.command.GetTitleCommand;
 import sokolov.dunkancards.view.categories.view.CategoriesView;
 import sokolov.dunkancards.view.categories.view.CategoryDisplayModel;
+import sokolov.dunkancards.view.mapper.CategoryMapper;
 
 public class CategoriesPresenterImpl implements CategoriesPresenter {
 
     private final CategoriesView categoriesView;
-    private final CategoriesInteractor categoriesInteractor;
+    private final LoadCategoriesUseCase loadCategoriesUseCase;
+    private final CategoryMapper categoryMapper;
+    private final GetTitleCommand getTitleCommand;
 
-    public CategoriesPresenterImpl(CategoriesView categoriesView, CategoriesInteractor categoriesInteractor) {
+    public CategoriesPresenterImpl(CategoriesView categoriesView, LoadCategoriesUseCase loadCategoriesUseCase, CategoryMapper categoryMapper, GetTitleCommand getTitleCommand) {
         this.categoriesView = categoriesView;
-        this.categoriesInteractor = categoriesInteractor;
+        this.loadCategoriesUseCase = loadCategoriesUseCase;
+        this.categoryMapper = categoryMapper;
+        this.getTitleCommand = getTitleCommand;
     }
 
     @Override
     public void onViewShow() {
-        categoriesView.setCategories(
-                categoriesInteractor.loadCategories());
-        categoriesView.updateTitle(
-                categoriesInteractor.getTitle());
+        loadCategoriesUseCase.execute(
+                new LoadCategoriesUseCase.Callback() {
+
+                    @Override
+                    public void onSuccess(List<Category> categories) {
+                        categoriesView.setCategories(
+                                categoryMapper.toDisplayModel(
+                                        categories));
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
+
+        getTitleCommand.execute(new GetTitleCommand.Callback() {
+
+            @Override
+            public void onSuccess(String title) {
+                categoriesView.updateTitle(title);
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
 
     }
 

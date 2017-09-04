@@ -20,17 +20,19 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.view.cards.view.CardsActivity;
-import sokolov.dunkancards.domain.usecase.categories.CategoriesInteractorImpl;
-import sokolov.dunkancards.view.categories.presenter.CategoriesPresenter;
-import sokolov.dunkancards.view.categories.presenter.CategoriesPresenterImpl;
 import sokolov.dunkancards.data.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.data.repository.category.InMemoryCategoriesRepository;
+import sokolov.dunkancards.data.repository.i18n.InMemoryFlagRepository;
 import sokolov.dunkancards.data.repository.i18n.InMemoryStringsRepository;
 import sokolov.dunkancards.data.repository.language.InMemoryLanguageRep;
+import sokolov.dunkancards.domain.usecase.categories.LoadLoadCategoriesUseCaseImpl;
+import sokolov.dunkancards.view.cards.view.CardsActivity;
+import sokolov.dunkancards.view.categories.presenter.CategoriesPresenter;
+import sokolov.dunkancards.view.categories.presenter.CategoriesPresenterImpl;
+import sokolov.dunkancards.view.categories.presenter.command.GetTitleCommandImpl;
+import sokolov.dunkancards.view.mapper.CategoryMapperImpl;
 import sokolov.dunkancards.view.settings.presenter.SettingsPresenter;
 import sokolov.dunkancards.view.settings.presenter.SettingsPresenterImpl;
-import sokolov.dunkancards.data.repository.i18n.InMemoryFlagRepository;
 import sokolov.dunkancards.view.settings.view.LanguageDisplayModel;
 import sokolov.dunkancards.view.settings.view.SettingsView;
 
@@ -57,9 +59,13 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
         categoriesPresenter =
                 new CategoriesPresenterImpl(
                         this,
-                        new CategoriesInteractorImpl(
-                                new InMemoryCategoriesRepository(),
-                                new InMemoryCardsRepository(),
+                        new LoadLoadCategoriesUseCaseImpl(
+                                new InMemoryCategoriesRepository()),
+                        new CategoryMapperImpl(
+                                ((DuncanCardsApp) getApplication())
+                                        .getSettingsRepository(),
+                                new InMemoryCardsRepository()),
+                        new GetTitleCommandImpl(
                                 ((DuncanCardsApp) getApplication()).getSettingsRepository(),
                                 new InMemoryStringsRepository()));
 
