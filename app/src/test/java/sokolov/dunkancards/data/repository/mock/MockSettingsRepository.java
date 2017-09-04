@@ -1,4 +1,4 @@
-package sokolov.dunkancards.mock.repository;
+package sokolov.dunkancards.data.repository.mock;
 
 import sokolov.dunkancards.domain.boundary.settings.SettingsRepository;
 

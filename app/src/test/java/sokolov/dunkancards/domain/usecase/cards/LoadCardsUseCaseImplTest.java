@@ -8,10 +8,10 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 
 import sokolov.dunkancards.domain.entity.card.Card;
-import sokolov.dunkancards.mock.repository.MockCardsRepository;
+import sokolov.dunkancards.data.repository.mock.MockCardsRepository;
 
 import static sokolov.dunkancards.data.repository.category.CategoriesConstants.TRANSPORT_ID;
-import static sokolov.dunkancards.view.cards.CardsTestData.TRANSPORT_CARD_MODELS;
+import static sokolov.dunkancards.data.repository.cards.CardsTestData.TRANSPORT_CARD_MODELS;
 
 public class LoadCardsUseCaseImplTest {
 

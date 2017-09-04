@@ -1,4 +1,4 @@
-package sokolov.dunkancards.mock.data;
+package sokolov.dunkancards.data.repository.language;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package sokolov.dunkancards.view.cards;
+package sokolov.dunkancards.data.repository.cards;
 
 import java.util.ArrayList;
 import java.util.Arrays;

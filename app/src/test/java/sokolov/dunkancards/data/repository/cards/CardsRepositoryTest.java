@@ -1,4 +1,4 @@
-package sokolov.dunkancards.view.cards.model;
+package sokolov.dunkancards.data.repository.cards;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,7 +9,7 @@ import java.util.Collections;
 import sokolov.dunkancards.data.repository.card.InMemoryCardsRepository;
 import sokolov.dunkancards.domain.boundary.card.CardsRepository;
 
-import static sokolov.dunkancards.view.cards.CardsTestData.TRANSPORT_CARD_MODELS;
+import static sokolov.dunkancards.data.repository.cards.CardsTestData.TRANSPORT_CARD_MODELS;
 import static sokolov.dunkancards.data.repository.category.CategoriesConstants.TRANSPORT_ID;
 
 public class CardsRepositoryTest {

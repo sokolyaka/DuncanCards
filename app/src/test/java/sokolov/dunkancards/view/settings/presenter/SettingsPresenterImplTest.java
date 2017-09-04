@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 import sokolov.dunkancards.data.repository.language.InMemoryLanguageRep;
 import sokolov.dunkancards.data.repository.settings.InMemorySettingsRepository;
 import sokolov.dunkancards.domain.entity.language.LanguageModel;
-import sokolov.dunkancards.mock.data.LanguageTestData;
+import sokolov.dunkancards.data.repository.language.LanguageTestData;
 import sokolov.dunkancards.domain.boundary.i18n.FlagRepository;
 import sokolov.dunkancards.view.settings.view.LanguageDisplayModelFromModel;
 import sokolov.dunkancards.view.settings.view.MockLanguageDisplayModel;

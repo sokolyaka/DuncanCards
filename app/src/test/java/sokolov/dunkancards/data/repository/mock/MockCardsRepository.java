@@ -1,8 +1,8 @@
-package sokolov.dunkancards.mock.repository;
+package sokolov.dunkancards.data.repository.mock;
 
 import java.util.List;
 
-import sokolov.dunkancards.view.cards.CardsTestData;
+import sokolov.dunkancards.data.repository.cards.CardsTestData;
 import sokolov.dunkancards.domain.entity.card.Card;
 import sokolov.dunkancards.domain.boundary.card.CardsRepository;
 

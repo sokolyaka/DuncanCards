@@ -7,9 +7,9 @@ import sokolov.dunkancards.domain.usecase.categories.CategoriesInteractorImpl;
 import sokolov.dunkancards.view.categories.view.CategoryDisplayModelFromDataModel;
 import sokolov.dunkancards.data.repository.i18n.InMemoryStringsRepository;
 import sokolov.dunkancards.domain.usecase.categories.CategoriesInteractor;
-import sokolov.dunkancards.mock.repository.MockCardsRepository;
-import sokolov.dunkancards.mock.repository.MockCategoriesRepository;
-import sokolov.dunkancards.mock.repository.MockSettingsRepository;
+import sokolov.dunkancards.data.repository.mock.MockCardsRepository;
+import sokolov.dunkancards.data.repository.mock.MockCategoriesRepository;
+import sokolov.dunkancards.data.repository.mock.MockSettingsRepository;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
