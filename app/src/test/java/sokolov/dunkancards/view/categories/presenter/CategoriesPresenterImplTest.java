@@ -42,7 +42,7 @@ public class CategoriesPresenterImplTest {
         verify(categoriesInteractor)
                 .getTitle();
         verify(categoriesView)
-                .updateTitle("Doman's cards");
+                .updateTitle("");
     }
 
     @Test

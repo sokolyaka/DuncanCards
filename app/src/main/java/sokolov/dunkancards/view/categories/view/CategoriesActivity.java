@@ -36,7 +36,7 @@ import sokolov.dunkancards.view.settings.view.SettingsView;
 
 public class CategoriesActivity extends AppCompatActivity implements CategoriesView, SettingsView {
 
-    public static final String CATEGORY_DISPLAY_MODEL = "CATEGORY_DISPLAY_MODEL";
+    public static final String SELECTED_CATEGORY_ID = "SELECTED_CATEGORY_ID";
 
     private CategoriesPresenter categoriesPresenter;
     private CategoriesAdapter mAdapter;
@@ -101,7 +101,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesV
     @Override
     public void launchCategoryView(CategoryDisplayModel item) {
         Intent intent = new Intent(this, CardsActivity.class);
-        intent.putExtra(CATEGORY_DISPLAY_MODEL, new SerializableCategoryDisplayModel(item));
+        intent.putExtra(SELECTED_CATEGORY_ID, item.id());
         startActivity(intent);
     }
 

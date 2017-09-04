@@ -10,14 +10,13 @@ import java.util.List;
 
 import sokolov.dunkancards.DuncanCardsApp;
 import sokolov.dunkancards.R;
-import sokolov.dunkancards.domain.usecase.cards.CardsInteractorImpl;
-import sokolov.dunkancards.view.cards.presenter.CardsPresenter;
-import sokolov.dunkancards.view.cards.presenter.CardsPresenterImpl;
-import sokolov.dunkancards.view.categories.view.CategoryDisplayModel;
 import sokolov.dunkancards.common.util.view.ZoomOutPageTransformer;
 import sokolov.dunkancards.data.repository.card.InMemoryCardsRepository;
+import sokolov.dunkancards.domain.usecase.cards.LoadCardsUseCaseImpl;
+import sokolov.dunkancards.view.cards.presenter.CardsPresenterImpl;
+import sokolov.dunkancards.view.mapper.CardsMapperImpl;
 
-import static sokolov.dunkancards.view.categories.view.CategoriesActivity.CATEGORY_DISPLAY_MODEL;
+import static sokolov.dunkancards.view.categories.view.CategoriesActivity.SELECTED_CATEGORY_ID;
 
 public class CardsActivity extends AppCompatActivity implements CardsView {
 
@@ -28,18 +27,15 @@ public class CardsActivity extends AppCompatActivity implements CardsView {
         setContentView(R.layout.activity_cards);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        CardsPresenter cardsPresenter =
-                new CardsPresenterImpl(
-                        this,
-                        new CardsInteractorImpl(
-                                new InMemoryCardsRepository(),
-                                ((DuncanCardsApp) getApplication())
-                                        .getSettingsRepository()));
-
-        cardsPresenter.onCreate(
-                (CategoryDisplayModel) getIntent()
-                        .getSerializableExtra(
-                                CATEGORY_DISPLAY_MODEL));
+        new CardsPresenterImpl(
+                this,
+                new LoadCardsUseCaseImpl(
+                        new InMemoryCardsRepository(),
+                        getIntent().getIntExtra(SELECTED_CATEGORY_ID, -1)),
+                new CardsMapperImpl(
+                        ((DuncanCardsApp) getApplication())
+                                .getSettingsRepository()))
+                .onCreate();
     }
 
     @Override
