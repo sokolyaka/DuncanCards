@@ -1,4 +1,4 @@
-package sokolov.dunkancards.view.cards.interactor;
+package sokolov.dunkancards.domain.usecase.cards;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,8 +8,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 
 import sokolov.dunkancards.domain.entity.card.Card;
-import sokolov.dunkancards.domain.usecase.cards.LoadCardsUseCase;
-import sokolov.dunkancards.domain.usecase.cards.LoadCardsUseCaseImpl;
 import sokolov.dunkancards.mock.repository.MockCardsRepository;
 
 import static sokolov.dunkancards.data.repository.category.CategoriesConstants.TRANSPORT_ID;
