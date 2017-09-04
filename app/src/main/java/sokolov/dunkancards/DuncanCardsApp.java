@@ -4,8 +4,8 @@ import android.app.Application;
 
 import java.util.Locale;
 
-import sokolov.dunkancards.domain.repository.settings.InMemorySettingsRepository;
-import sokolov.dunkancards.domain.repository.settings.SettingsRepository;
+import sokolov.dunkancards.data.repository.settings.InMemorySettingsRepository;
+import sokolov.dunkancards.domain.boundary.settings.SettingsRepository;
 
 public class DuncanCardsApp extends Application {
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import sokolov.dunkancards.domain.entity.language.Language;
 import sokolov.dunkancards.domain.entity.language.LanguageModel;
-import sokolov.dunkancards.settings.view.LanguageDisplayModel;
-import sokolov.dunkancards.settings.view.LanguageDisplayModelFromModel;
+import sokolov.dunkancards.view.settings.view.LanguageDisplayModel;
+import sokolov.dunkancards.view.settings.view.LanguageDisplayModelFromModel;
 
 import static java.util.Arrays.asList;
 

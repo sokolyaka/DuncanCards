@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".categories.view.CategoriesActivity"
+            android:name=".view.categories.view.CategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.view.SettingsActivity"
+            android:name=".view.settings.view.SettingsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".categories.view.CategoriesActivity"/>
+                android:value=".view.categories.view.CategoriesActivity"/>
         </activity>
         <activity
-            android:name=".cards.view.CardsActivity"
+            android:name=".view.cards.view.CardsActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

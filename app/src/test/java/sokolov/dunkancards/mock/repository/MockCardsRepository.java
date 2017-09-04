@@ -2,9 +2,9 @@ package sokolov.dunkancards.mock.repository;
 
 import java.util.List;
 
-import sokolov.dunkancards.cards.CardsTestData;
+import sokolov.dunkancards.view.cards.CardsTestData;
 import sokolov.dunkancards.domain.entity.card.Card;
-import sokolov.dunkancards.domain.repository.card.CardsRepository;
+import sokolov.dunkancards.domain.boundary.card.CardsRepository;
 
 
 public class MockCardsRepository implements CardsRepository {
