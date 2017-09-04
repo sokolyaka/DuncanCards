@@ -5,7 +5,7 @@
                 android:background="@color/colorPrimaryLight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".cards.view.CardsActivity">
+                tools:context=".view.cards.view.CardsActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"

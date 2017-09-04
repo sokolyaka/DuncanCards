@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorPrimaryLight"
-    tools:context="sokolov.dunkancards.categories.view.CategoriesActivity">
+    tools:context=".view.categories.view.CategoriesActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
